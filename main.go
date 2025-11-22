@@ -1,7 +1,7 @@
 package main
 
 import (
-	"golab/rune"
+	"golab/internal/rune"
 	"log"
 )
 
