@@ -1,9 +1,9 @@
 package main
 
 import (
-	"golab/internal/rune"
-	greeter "golab/pkgs/greeting"
-	subgreeter "golab/pkgs/greeting/subgreeting"
+	greeter "github.com/chonlaphoom/golab/greeting"
+	subgreeter "github.com/chonlaphoom/golab/greeting/subgreeting"
+	"github.com/chonlaphoom/golab/rune"
 	"log"
 )
 
