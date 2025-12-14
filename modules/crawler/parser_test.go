@@ -44,7 +44,7 @@ func TestGetEmptyFirstParagraphFromHTML(t *testing.T) {
 }
 
 func TestGetURLsFromHTMLAbsolute(t *testing.T) {
-	inputURL := "https://blog.boot.dev"
+	inputURL := "https://blog.web.dev"
 
 	_, err := url.Parse(inputURL)
 	if err != nil {
@@ -61,21 +61,21 @@ func TestGetURLsFromHTMLAbsolute(t *testing.T) {
 		{
 			name:      "absolute URL",
 			inputURL:  inputURL,
-			inputBody: `<html><body><a href="https://blog.boot.dev"><span>Boot.dev</span></a></body></html>`,
-			expected:  []string{"https://blog.boot.dev"},
+			inputBody: `<html><body><a href="https://blog.web.dev"><span>web.dev</span></a></body></html>`,
+			expected:  []string{"https://blog.web.dev"},
 		}, {
 			name:      "relative URL",
 			inputURL:  inputURL,
-			inputBody: `<html><body><a href="/"><span>Boot.dev</span></a></body></html>`,
-			expected:  []string{"https://blog.boot.dev"},
+			inputBody: `<html><body><a href="/"><span>web.dev</span></a></body></html>`,
+			expected:  []string{"https://blog.web.dev"},
 		}, {
 			name:     "mixed URLs",
 			inputURL: inputURL,
 			inputBody: `<html><body>
-			<a href="https://blog.boot.dev"><span>Boot.dev</span></a>
+			<a href="https://blog.web.dev"><span>web.dev</span></a>
 			<a href="/about"><span>About</span></a>
 		</body></html>`,
-			expected: []string{"https://blog.boot.dev", "https://blog.boot.dev/about"},
+			expected: []string{"https://blog.web.dev", "https://blog.web.dev/about"},
 		},
 	}
 
@@ -95,7 +95,7 @@ func TestGetURLsFromHTMLAbsolute(t *testing.T) {
 }
 
 func TestGetImagesFromHTMLRelative(t *testing.T) {
-	inputURL := "https://blog.boot.dev"
+	inputURL := "https://blog.web.dev"
 	_, err := url.Parse(inputURL)
 	if err != nil {
 		t.Errorf("couldn't parse input URL: %v", err)
@@ -110,17 +110,17 @@ func TestGetImagesFromHTMLRelative(t *testing.T) {
 		{
 			name:     "relative image URL",
 			input:    `<html><body><img src="/logo.png" alt="Logo"></body></html>`,
-			expected: []string{"https://blog.boot.dev/logo.png"},
+			expected: []string{"https://blog.web.dev/logo.png"},
 		},
 		{
 			name:     "absolute image URL",
-			input:    `<html><body><img src="https://blog.boot.dev/logo.png" alt="Logo"></body></html>`,
-			expected: []string{"https://blog.boot.dev/logo.png"},
+			input:    `<html><body><img src="https://blog.web.dev/logo.png" alt="Logo"></body></html>`,
+			expected: []string{"https://blog.web.dev/logo.png"},
 		},
 		{
 			name:     "mixed image URLs",
-			input:    `<html><body><img src="/logo.png" alt="Logo"><img src="https://blog.boot.dev/banner.png" alt="Banner"></body></html>`,
-			expected: []string{"https://blog.boot.dev/logo.png", "https://blog.boot.dev/banner.png"},
+			input:    `<html><body><img src="/logo.png" alt="Logo"><img src="https://blog.web.dev/banner.png" alt="Banner"></body></html>`,
+			expected: []string{"https://blog.web.dev/logo.png", "https://blog.web.dev/banner.png"},
 		},
 	}
 

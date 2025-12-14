@@ -6,7 +6,7 @@ import (
 )
 
 func TestExtractPageData(t *testing.T) {
-	inputURL := "https://blog.boot.dev"
+	inputURL := "https://blog.domain"
 	inputBody := `<html><body>
         <h1>Test Title</h1>
         <p>This is the first paragraph.</p>
@@ -17,11 +17,11 @@ func TestExtractPageData(t *testing.T) {
 	actual := extractPageData(inputBody, inputURL)
 
 	expected := PageData{
-		URL:            "https://blog.boot.dev",
+		URL:            "https://blog.domain",
 		H1:             "Test Title",
 		FirstParagraph: "This is the first paragraph.",
-		OutgoingLinks:  []string{"https://blog.boot.dev/link1"},
-		ImageURLs:      []string{"https://blog.boot.dev/image1.jpg"},
+		OutgoingLinks:  []string{"https://blog.domain/link1"},
+		ImageURLs:      []string{"https://blog.domain/image1.jpg"},
 	}
 
 	if !reflect.DeepEqual(actual, expected) {

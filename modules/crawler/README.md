@@ -13,7 +13,7 @@ go build -o crawler .
 ./crawler <BASE_URL> <MAX_CONCURRENT> <MAX_PAGE>
 
 # run tests
-go test ./...
+go test -v ./...
 ```
 
 What it does
@@ -21,3 +21,4 @@ What it does
 - Normalizes URLs (`normalize_url.go`).
 - Parses page data (`parser.go`, `page_data.go`).
 - Small test suite in `*_test.go` files.
+

@@ -79,7 +79,7 @@ func getHTML(rawURL string) (string, error) {
 		return "", err
 	}
 
-	request.Header.Add("User-Agent", "BootCrawler/1.0")
+	request.Header.Add("User-Agent", "MyCrawler/1.0") // Set a custom User-Agent
 	response, err := http.DefaultClient.Do(request)
 	if err != nil {
 		return "", err

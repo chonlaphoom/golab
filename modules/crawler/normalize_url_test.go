@@ -12,23 +12,23 @@ func TestNormalizeURL(t *testing.T) {
 	}{
 		{
 			name:     "with https",
-			inputURL: "https://blog.boot.dev/path",
-			expected: "blog.boot.dev/path",
+			inputURL: "https://blog.test.dev/path",
+			expected: "blog.test.dev/path",
 		},
 		{
 			name:     "with http",
-			inputURL: "http://blog.boot.dev/path",
-			expected: "blog.boot.dev/path",
+			inputURL: "http://blog.test.dev/path",
+			expected: "blog.test.dev/path",
 		},
 		{
 			name:     "start with http and ends with slash",
-			inputURL: "http://blog.boot.dev/path/",
-			expected: "blog.boot.dev/path",
+			inputURL: "http://blog.test.dev/path/",
+			expected: "blog.test.dev/path",
 		},
 		{
 			name:     "start with https and ends with slash",
-			inputURL: "https://blog.boot.dev/path/",
-			expected: "blog.boot.dev/path",
+			inputURL: "https://blog.test.dev/path/",
+			expected: "blog.test.dev/path",
 		},
 	}
 
