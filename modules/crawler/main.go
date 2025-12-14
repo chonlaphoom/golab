@@ -4,33 +4,69 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
+	"strconv"
 	"strings"
 )
 
 func main() {
 	actualArgs := os.Args[1:]
-	if len(actualArgs) < 1 {
+	if len(actualArgs) < 3 {
 		fmt.Println("no website provided")
 		os.Exit(1)
 		return
 	}
 
-	if len(actualArgs) > 1 {
+	if len(actualArgs) > 3 {
 		fmt.Println("too many arguments provided")
 		os.Exit(1)
 		return
 	}
 
-	fmt.Printf("starting crawl\n%s\n", actualArgs[0])
+	baseURL := actualArgs[0]
+	maxConcurrencyStr := actualArgs[1]
+	maxPagesStr := actualArgs[2]
 
-	// TODO: going to implement worker pool here later to speed this bad boy up
-	pages := crawlPage(actualArgs[0], actualArgs[0], map[string]int{})
+	maxConcurrent, err := strconv.Atoi(maxConcurrencyStr)
+	if err != nil || maxConcurrent <= 0 {
+		fmt.Println("invalid max concurrency value")
+		os.Exit(1)
+		return
+	}
+	if maxConcurrent > 5 {
+		fmt.Println("max concurrency value is 5")
+		maxConcurrent = 5
+	}
 
-	fmt.Println("crawl finished")
+	maxPages, err := strconv.Atoi(maxPagesStr)
+	if err != nil || maxPages <= 0 {
+		fmt.Println("invalid max pages value")
+		os.Exit(1)
+		return
+	}
 
-	fmt.Printf("found %v unique pages\n", pages)
+	// fmt.Printf("Max Concurrency: %d\n", maxConcurrent)
+	// fmt.Printf("Max Pages: %d\n", maxPages)
+	fmt.Printf("starting crawl\n%s\n\n", baseURL)
 
+	parsedBaseURL, err := url.Parse(baseURL)
+	if err != nil {
+		fmt.Printf("error parsing base URL: %v\n", err)
+		os.Exit(1)
+		return
+	}
+
+	cfg := newConfig(parsedBaseURL, maxConcurrent, maxPages)
+
+	cfg.wg.Add(1)
+	cfg.crawlPage(baseURL)
+
+	cfg.wg.Wait()
+	fmt.Printf("crawl finished\n")
+	for _, pageData := range cfg.pages {
+		fmt.Printf("Found page: %s\n", pageData.URL)
+	}
 	os.Exit(0)
 }
 

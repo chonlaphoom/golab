@@ -3,55 +3,89 @@ package main
 import (
 	"fmt"
 	"net/url"
+	"sync"
 	"time"
 )
 
-func crawlPage(rawBaseURL, rawCurrentURL string, pages map[string]int) map[string]int {
-	parsedRawBaseURL, err := url.Parse(rawBaseURL)
-	if err != nil {
-		return pages
+type config struct {
+	pages              map[string]PageData
+	baseURL            *url.URL
+	mu                 *sync.Mutex
+	concurrencyControl chan struct{}
+	wg                 *sync.WaitGroup
+	maxPages           int
+}
+
+func newConfig(baseURL *url.URL, maxConcurrency, maxPages int) *config {
+	return &config{
+		pages:              make(map[string]PageData),
+		baseURL:            baseURL,
+		mu:                 &sync.Mutex{},
+		concurrencyControl: make(chan struct{}, maxConcurrency),
+		wg:                 &sync.WaitGroup{},
+		maxPages:           maxPages,
+	}
+}
+
+func (cfg *config) addPageVisit(normalizedURL string) (isFirst bool) {
+	cfg.mu.Lock()
+	defer cfg.mu.Unlock()
+
+	_, found := cfg.pages[normalizedURL]
+	return !found
+}
+
+func (cfg *config) setPageData(normalizedURL string, data PageData) {
+	cfg.mu.Lock()
+	defer cfg.mu.Unlock()
+	cfg.pages[normalizedURL] = data
+}
+
+func (cfg *config) crawlPage(rawCurrentURL string) {
+	cfg.concurrencyControl <- struct{}{}
+	defer func() {
+		<-cfg.concurrencyControl
+		// fmt.Printf("Finished processing: %s\n", rawCurrentURL)
+		cfg.wg.Done()
+	}()
+
+	if len(cfg.pages) >= cfg.maxPages {
+		// fmt.Printf("Reached max page limit of %d, stopping crawl.\n", cfg.maxPages)
+		return
 	}
 
+	parsedRawBaseURL := cfg.baseURL
 	parsedRawCurrentURL, err := url.Parse(rawCurrentURL)
 	if err != nil {
-		return pages
+		return
 	}
 
-	// only crawl pages on the same domain
-	if parsedRawBaseURL.Host != parsedRawCurrentURL.Host {
-		return pages
+	if parsedRawBaseURL.Hostname() != parsedRawCurrentURL.Hostname() {
+		return
 	}
 
 	normalizedCurrentURL, err := normalizeURL(rawCurrentURL)
 	if err != nil {
-		return pages
+		return
 	}
 
-	if _, ok := pages[normalizedCurrentURL]; ok {
-		pages[normalizedCurrentURL]++
-		return pages
+	if isFirst := cfg.addPageVisit(normalizedCurrentURL); !isFirst {
+		return
 	}
 
-	// mark page as visited
-	pages[normalizedCurrentURL] = 1
-
-	html, err := getHTML(rawCurrentURL)
+	rawHTML, err := getHTML(rawCurrentURL)
 	if err != nil {
-		return pages
+		return
 	}
-	fmt.Printf("crawled page: %s\n", rawCurrentURL)
-	urls, err := getURLsFromHTML(html, rawCurrentURL)
-	if err != nil {
-		return pages
-	}
+	fmt.Printf("[%s] Crawled: %s\n", time.Now().Format(time.RFC3339), rawCurrentURL)
 
-	// delay between requests to avoid overwhelming the server
-	time.Sleep(3 * time.Second)
+	pageData := extractPageData(rawHTML, rawCurrentURL)
+	cfg.setPageData(normalizedCurrentURL, pageData)
 
-	for _, link := range urls {
-		fmt.Printf("found link: %s\n", link)
-		crawlPage(rawBaseURL, link, pages)
+	for _, link := range pageData.OutgoingLinks {
+		cfg.wg.Add(1)
+		go cfg.crawlPage(link)
 	}
 
-	return pages
+	time.Sleep(500 * time.Millisecond) // polite delay between requests
 }
