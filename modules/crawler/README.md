@@ -1,17 +1,23 @@
 # crawler
 
-Tiny Go web crawler for experiments and tests — nothing fancy.
+Small, experimental Go web crawler — quick and low-ceremony.
 
 Quick start
 
 ```bash
-# needs Go installed
-go run main.go
+# needs Go (1.20+)
+go run main.go <BASE_URL> <MAX_CONCURRENT> <MAX_PAGE>
+
+# build and run
+go build -o crawler .
+./crawler <BASE_URL> <MAX_CONCURRENT> <MAX_PAGE>
+
 # run tests
 go test ./...
 ```
 
-Notes
+What it does
 
-- Normalizes URLs and parses page data.
-- Tests are in the `*_test.go` files.
+- Normalizes URLs (`normalize_url.go`).
+- Parses page data (`parser.go`, `page_data.go`).
+- Small test suite in `*_test.go` files.
