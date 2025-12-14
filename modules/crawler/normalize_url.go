@@ -1,12 +1,19 @@
 package main
 
 import (
-	"fmt"
 	"net/url"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
+
+type PageData struct {
+	URL            string
+	H1             string
+	FirstParagraph string
+	OutgoingLinks  []string
+	ImageURLs      []string
+}
 
 func normalizeURL(inputURL string) (string, error) {
 	parsedURL, err := url.Parse(inputURL)
@@ -55,7 +62,6 @@ func getURLsFromHTML(htmlBody string, baseURL string) ([]string, error) {
 	var urls []string
 	doc.Find("a[href]").Each(func(index int, item *goquery.Selection) {
 		val, exist := item.Attr("href")
-		fmt.Println("Found URL:", val, err)
 		if !exist {
 			return
 		}
@@ -125,4 +131,27 @@ func getImagesFromHTML(htmlBody string, baseURL string) ([]string, error) {
 	})
 
 	return imageURLs, nil
+}
+
+func extractPageData(htmlBody, pageURL string) PageData {
+	h1 := getH1FromHTML(htmlBody)
+	firstParagraph := getFirstParagraphFromHTML(htmlBody)
+
+	outgoingLinks, err := getURLsFromHTML(htmlBody, pageURL)
+	if err != nil {
+		return PageData{}
+	}
+
+	imageURLs, err := getImagesFromHTML(htmlBody, pageURL)
+	if err != nil {
+		return PageData{}
+	}
+
+	return PageData{
+		URL:            pageURL,
+		H1:             h1,
+		FirstParagraph: firstParagraph,
+		OutgoingLinks:  outgoingLinks,
+		ImageURLs:      imageURLs,
+	}
 }
