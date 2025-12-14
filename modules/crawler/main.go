@@ -23,16 +23,13 @@ func main() {
 	}
 
 	fmt.Printf("starting crawl\n%s\n", actualArgs[0])
-	html, err := getHTML(actualArgs[0])
-	if err != nil {
-		fmt.Printf("error fetching HTML: %s\n", err.Error())
-		os.Exit(1)
-		return
-	}
 
-	fmt.Printf("fetched HTML\n%s\n", html)
+	pages := crawlPage(actualArgs[0], actualArgs[0], map[string]int{})
 
 	fmt.Println("crawl finished")
+
+	fmt.Printf("found %v unique pages\n", pages)
+
 	os.Exit(0)
 }
 
