@@ -67,6 +67,9 @@ func main() {
 	for _, pageData := range cfg.pages {
 		fmt.Printf("Found page: %s\n", pageData.URL)
 	}
+
+	writeCSVReport(cfg.pages, "report.csv")
+	fmt.Printf("\nreport generated: report.csv\n")
 	os.Exit(0)
 }
 
