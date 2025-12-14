@@ -24,6 +24,7 @@ func main() {
 
 	fmt.Printf("starting crawl\n%s\n", actualArgs[0])
 
+	// TODO: going to implement worker pool here later to speed this bad boy up
 	pages := crawlPage(actualArgs[0], actualArgs[0], map[string]int{})
 
 	fmt.Println("crawl finished")
