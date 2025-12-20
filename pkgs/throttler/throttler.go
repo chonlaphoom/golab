@@ -52,9 +52,9 @@ func (t *Throttler) worker(ctx context.Context) {
 			}
 			if err := task.fn(ctx); err != nil {
 				log.Printf("Error executing task %s: %v", task.name, err)
-				t.result <- 1
 				continue
 			}
+			t.result <- 1
 		}
 	}
 }
