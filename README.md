@@ -6,6 +6,6 @@ Each experiment or module is organized into packages for easy management and exe
 
 ## Structure
 
-- pkgs: small experiment packages and its runners
-- modules: larger experiment modules. Each module may contain multiple packages and its own main
+* pkgs: small experiment packages and its runners
+* modules: larger experiment modules. Each module may contain multiple packages and its own main
   package to run the module.
