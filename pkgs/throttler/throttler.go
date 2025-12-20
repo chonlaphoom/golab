@@ -48,13 +48,18 @@ func (t *Throttler) worker(ctx context.Context) {
 			return
 		case task, ok := <-t.tasks:
 			if !ok {
-				return
+				return // channel closed
 			}
-			if err := task.fn(ctx); err != nil {
-				log.Printf("Error executing task %s: %v", task.name, err)
+			err := task.fn(ctx)
+			if err != nil {
+				log.Printf("Error: %v", err)
 				continue
 			}
-			t.result <- 1
+			select {
+			case t.result <- 1:
+			case <-ctx.Done():
+				return
+			}
 		}
 	}
 }
