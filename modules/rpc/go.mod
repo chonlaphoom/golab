@@ -1,5 +1,5 @@
 // intentionally make it un-gettable
 
-module worker-pool
+module rpc
 
 go 1.25.0

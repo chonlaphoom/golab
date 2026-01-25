@@ -1,3 +1,4 @@
+// intentionally make it un-gettable
 module crawler
 
 go 1.25.0
