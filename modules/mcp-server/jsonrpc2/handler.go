@@ -2,6 +2,7 @@ package jsonrpc2
 
 import (
 	"encoding/json"
+	"errors"
 )
 
 func NewMessage() *Message {
@@ -10,10 +11,90 @@ func NewMessage() *Message {
 	}
 }
 
-func (req *Message) ParseRequest(data []byte) error {
-	err := json.Unmarshal(data, req.Request)
-	if err != nil {
-		return err
+// RPCError represents a parse/validation error with an associated JSON-RPC error code.
+type RPCError struct {
+	Code ErrorCode
+	Err  error
+}
+
+func (e RPCError) Error() string { return e.Err.Error() }
+
+// ParseRequest parses raw JSON request data into the message's Request and
+// performs basic validation. It accepts both positional (array) and named
+// (object) params; object params are wrapped into a single-element params
+// array to preserve the original behavior.
+func (msg *Message) ParseRequest(data []byte) error {
+	// intermediate container to accept params as raw JSON
+	var raw struct {
+		JSONRPC json.RawMessage `json:"jsonrpc"`
+		Method  string          `json:"method"`
+		Params  json.RawMessage `json:"params"`
+		ID      json.RawMessage `json:"id"`
+	}
+
+	if err := json.Unmarshal(data, &raw); err != nil {
+		return RPCError{Code: Parse, Err: err}
+	}
+
+	// jsonrpc field must be the literal string "2.0"
+	var ver string
+	if len(raw.JSONRPC) > 0 {
+		if err := json.Unmarshal(raw.JSONRPC, &ver); err != nil {
+			return RPCError{Code: InvalidRequest, Err: errors.New("invalid jsonrpc field")}
+		}
+	}
+
+	// populate request
+	if msg.Request == nil {
+		msg.Request = &Request{}
+	}
+	msg.Request.JSONRPC_VER = ver
+	msg.Request.Method = raw.Method
+
+	// parse params: array or object
+	if len(raw.Params) > 0 {
+		// detect leading character
+		b := raw.Params
+		// skip leading spaces
+		i := 0
+		for i < len(b) && (b[i] == ' ' || b[i] == '\n' || b[i] == '\t' || b[i] == '\r') {
+			i++
+		}
+		if i < len(b) && b[i] == '[' {
+			var arr []any
+			if err := json.Unmarshal(raw.Params, &arr); err != nil {
+				return RPCError{Code: InvalidParams, Err: err}
+			}
+			msg.Request.Params = arr
+		} else {
+			var obj map[string]any
+			if err := json.Unmarshal(raw.Params, &obj); err != nil {
+				return RPCError{Code: InvalidParams, Err: err}
+			}
+			msg.Request.Params = []any{obj}
+		}
+	} else {
+		msg.Request.Params = []any{}
+	}
+
+	// parse id if present and numeric; otherwise leave as 0
+	if len(raw.ID) > 0 {
+		// try number
+		var num float64
+		if err := json.Unmarshal(raw.ID, &num); err == nil {
+			msg.Request.ID = int(num)
+		} else {
+			// non-numeric IDs not supported by this implementation
+			return RPCError{Code: InvalidRequest, Err: errors.New("unsupported id type; only numeric ids are supported")}
+		}
+	}
+
+	// validate basic fields
+	if msg.Request.JSONRPC_VER != "2.0" {
+		return RPCError{Code: InvalidRequest, Err: errors.New("jsonrpc must be \"2.0\"")}
+	}
+	if msg.Request.Method == "" {
+		return RPCError{Code: InvalidRequest, Err: errors.New("method is required")}
 	}
 
 	return nil
@@ -64,12 +145,4 @@ func (msg *Message) NewSuccessResponseWithResult(result any) {
 		Result:      result,
 		ID:          msg.Request.ID,
 	}
-}
-
-func (succ *SuccessResponse) UnmarshalJSON() ([]byte, error) {
-	b, err := json.Marshal(succ)
-	if err != nil {
-		return []byte{}, err
-	}
-	return b, nil
 }
