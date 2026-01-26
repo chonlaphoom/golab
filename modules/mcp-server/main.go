@@ -122,7 +122,7 @@ func main() {
 	for {
 		select {
 		case <-sigChan:
-			slog.Info("Received shutdown signal, gracefully closing...")
+			slog.Info("Gracefully closing...")
 			return
 		default:
 		}
@@ -140,7 +140,7 @@ func main() {
 		msg := jsonrpc2.NewMessage()
 		if err := msg.ParseRequest(raw); err != nil {
 			// parsing error -> respond with Parse error
-			msg.WriteErrorResponse(0, jsonrpc2.Parse, err.Error())
+			msg.WriteError(0, jsonrpc2.Parse, err.Error())
 			out, _ := json.Marshal(msg.ErrorResponse)
 			os.Stdout.Write(out)
 			os.Stdout.WriteString("\n")
@@ -157,7 +157,7 @@ func main() {
 		} else if msg.SuccessResponse != nil {
 			out = msg.SuccessResponse
 		} else {
-			msg.WriteErrorResponse(msg.Request.ID, jsonrpc2.InternalError, "no response")
+			msg.WriteError(msg.Request.ID, jsonrpc2.InternalError, "no response")
 			out = msg.ErrorResponse
 		}
 
