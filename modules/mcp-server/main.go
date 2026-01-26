@@ -19,12 +19,12 @@ func handleInitialize(request mcp.InitializeRequest) mcp.InitializeResponse {
 		ProtocolVersion: "2026-01-26",
 		Capabilities: mcp.ServerCapabilities{
 			Tools: map[string]any{
-				"listChanged": false,
+				"listChanged": false, // tools does not change during the session
 			},
 		},
 		ServerInfo: mcp.ServerInfo{
 			Name:    "demo-mcp-server",
-			Version: "1.0.0",
+			Version: "0.0.1",
 		},
 	}
 }
@@ -140,7 +140,7 @@ func main() {
 		msg := jsonrpc2.NewMessage()
 		if err := msg.ParseRequest(raw); err != nil {
 			// parsing error -> respond with Parse error
-			msg.NewErrorResponse(0, jsonrpc2.Parse, err.Error())
+			msg.WriteErrorResponse(0, jsonrpc2.Parse, err.Error())
 			out, _ := json.Marshal(msg.ErrorResponse)
 			os.Stdout.Write(out)
 			os.Stdout.WriteString("\n")
@@ -157,7 +157,7 @@ func main() {
 		} else if msg.SuccessResponse != nil {
 			out = msg.SuccessResponse
 		} else {
-			msg.NewErrorResponse(msg.Request.ID, jsonrpc2.InternalError, "no response")
+			msg.WriteErrorResponse(msg.Request.ID, jsonrpc2.InternalError, "no response")
 			out = msg.ErrorResponse
 		}
 

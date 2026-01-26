@@ -97,7 +97,7 @@ func (msg *Message) ParseRequest(data []byte) error {
 	return nil
 }
 
-func (msg *Message) NewErrorResponse(id int, code ErrorCode, _message string) {
+func (msg *Message) WriteErrorResponse(id int, code ErrorCode, _message string) {
 	var error_message string
 	if _message != "" {
 		error_message = _message
@@ -128,7 +128,7 @@ An error occurred on the server while parsing the JSON text.`
 	}
 }
 
-func (msg *Message) NewSuccessResponseWithResult(result any) {
+func (msg *Message) WriteSuccessResponse(result any) {
 	msg.SuccessResponse = &SuccessResponse{
 		JSONRPC: "2.0",
 		Result:  result,

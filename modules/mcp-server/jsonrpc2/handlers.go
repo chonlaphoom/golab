@@ -43,13 +43,13 @@ func getHandler(method string) Handler {
 // fills msg.SuccessResponse or msg.ErrorResponse accordingly.
 func DispatchMessage(msg *Message, ctx *Context) {
 	if msg == nil || msg.Request == nil {
-		msg.NewErrorResponse(0, InvalidRequest, "")
+		msg.WriteErrorResponse(0, InvalidRequest, "")
 		return
 	}
 
 	h := getHandler(msg.Request.Method)
 	if h == nil {
-		msg.NewErrorResponse(msg.Request.ID, MethodNotFound, "")
+		msg.WriteErrorResponse(msg.Request.ID, MethodNotFound, "")
 		return
 	}
 
@@ -63,5 +63,5 @@ func DispatchMessage(msg *Message, ctx *Context) {
 		return
 	}
 
-	msg.NewSuccessResponseWithResult(result)
+	msg.WriteSuccessResponse(result)
 }
