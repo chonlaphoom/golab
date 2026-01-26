@@ -16,7 +16,7 @@ import (
 
 func handleInitialize(request mcp.InitializeRequest) mcp.InitializeResponse {
 	return mcp.InitializeResponse{
-		ProtocolVersion: "2024-11-05",
+		ProtocolVersion: "2026-01-26",
 		Capabilities: mcp.ServerCapabilities{
 			Tools: map[string]any{
 				"listChanged": false,
@@ -148,7 +148,6 @@ func main() {
 			continue
 		}
 
-		// Dispatch using jsonrpc2
 		ctx := jsonrpc2.NewContext(msg)
 		jsonrpc2.DispatchMessage(msg, ctx)
 

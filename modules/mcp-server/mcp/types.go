@@ -1,6 +1,10 @@
 package mcp
 
-// MCP Protocol structures
+/*
+ * MCP Protocol structures
+ *
+ */
+
 type InitializeRequest struct {
 	ProtocolVersion string      `json:"protocolVersion"`
 	Capabilities    interface{} `json:"capabilities"`

@@ -55,8 +55,8 @@ func DispatchMessage(msg *Message, ctx *Context) {
 
 	result, errResp := h.Handle(ctx, msg.Request.Params)
 	if errResp != nil {
-		if errResp.JSONRPC_VER == "" {
-			errResp.JSONRPC_VER = "2.0"
+		if errResp.JSONRPC == "" {
+			errResp.JSONRPC = "2.0"
 		}
 		errResp.ID = msg.Request.ID
 		msg.ErrorResponse = errResp

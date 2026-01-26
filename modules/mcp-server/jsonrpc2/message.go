@@ -11,12 +11,6 @@ func NewMessage() *Message {
 	}
 }
 
-// RPCError represents a parse/validation error with an associated JSON-RPC error code.
-type RPCError struct {
-	Code ErrorCode
-	Err  error
-}
-
 func (e RPCError) Error() string { return e.Err.Error() }
 
 // ParseRequest parses raw JSON request data into the message's Request and
@@ -24,7 +18,6 @@ func (e RPCError) Error() string { return e.Err.Error() }
 // (object) params; object params are wrapped into a single-element params
 // array to preserve the original behavior.
 func (msg *Message) ParseRequest(data []byte) error {
-	// intermediate container to accept params as raw JSON
 	var raw struct {
 		JSONRPC json.RawMessage `json:"jsonrpc"`
 		Method  string          `json:"method"`
@@ -39,8 +32,12 @@ func (msg *Message) ParseRequest(data []byte) error {
 	// jsonrpc field must be the literal string "2.0"
 	var ver string
 	if len(raw.JSONRPC) > 0 {
-		if err := json.Unmarshal(raw.JSONRPC, &ver); err != nil {
+		err := json.Unmarshal(raw.JSONRPC, &ver)
+		if err != nil {
 			return RPCError{Code: InvalidRequest, Err: errors.New("invalid jsonrpc field")}
+		}
+		if ver != "2.0" {
+			return RPCError{Code: InvalidRequest, Err: errors.New("jsonrpc must be \"2.0\"")}
 		}
 	}
 
@@ -48,7 +45,7 @@ func (msg *Message) ParseRequest(data []byte) error {
 	if msg.Request == nil {
 		msg.Request = &Request{}
 	}
-	msg.Request.JSONRPC_VER = ver
+	msg.Request.JSONRPC = ver
 	msg.Request.Method = raw.Method
 
 	// parse params: array or object
@@ -90,7 +87,7 @@ func (msg *Message) ParseRequest(data []byte) error {
 	}
 
 	// validate basic fields
-	if msg.Request.JSONRPC_VER != "2.0" {
+	if msg.Request.JSONRPC != "2.0" {
 		return RPCError{Code: InvalidRequest, Err: errors.New("jsonrpc must be \"2.0\"")}
 	}
 	if msg.Request.Method == "" {
@@ -99,14 +96,6 @@ func (msg *Message) ParseRequest(data []byte) error {
 
 	return nil
 }
-
-type ErrorCode int
-
-const Parse ErrorCode = -32700
-const InvalidRequest ErrorCode = -32600
-const MethodNotFound ErrorCode = -32601
-const InvalidParams ErrorCode = -32602
-const InternalError ErrorCode = -32603
 
 func (msg *Message) NewErrorResponse(id int, code ErrorCode, _message string) {
 	var error_message string
@@ -130,7 +119,7 @@ An error occurred on the server while parsing the JSON text.`
 		}
 	}
 	msg.ErrorResponse = &ErrorResponse{
-		JSONRPC_VER: "2.0",
+		JSONRPC: "2.0",
 		Error: Error{
 			Code:    code,
 			Message: error_message,
@@ -141,8 +130,8 @@ An error occurred on the server while parsing the JSON text.`
 
 func (msg *Message) NewSuccessResponseWithResult(result any) {
 	msg.SuccessResponse = &SuccessResponse{
-		JSONRPC_VER: "2.0",
-		Result:      result,
-		ID:          msg.Request.ID,
+		JSONRPC: "2.0",
+		Result:  result,
+		ID:      msg.Request.ID,
 	}
 }

@@ -12,7 +12,7 @@ func TestRegisterAndDispatch(t *testing.T) {
 
 	RegisterFunc("test.sum", func(ctx *Context, params []any) (any, *ErrorResponse) {
 		if len(params) < 2 {
-			return nil, &ErrorResponse{JSONRPC_VER: "2.0", Error: Error{Code: InvalidParams, Message: "need two params"}}
+			return nil, &ErrorResponse{JSONRPC: "2.0", Error: Error{Code: InvalidParams, Message: "need two params"}}
 		}
 		a, _ := params[0].(float64)
 		b, _ := params[1].(float64)
@@ -20,7 +20,7 @@ func TestRegisterAndDispatch(t *testing.T) {
 	})
 
 	msg := NewMessage()
-	msg.Request = &Request{JSONRPC_VER: "2.0", Method: "test.sum", Params: []any{1.0, 2.0}, ID: 1}
+	msg.Request = &Request{JSONRPC: "2.0", Method: "test.sum", Params: []any{1.0, 2.0}, ID: 1}
 	ctx := NewContext(msg)
 	DispatchMessage(msg, ctx)
 
