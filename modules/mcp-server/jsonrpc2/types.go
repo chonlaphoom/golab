@@ -6,13 +6,6 @@ type Message struct {
 	ErrorResponse   *ErrorResponse
 }
 
-type Request struct {
-	JSONRPC string `json:"jsonrpc"`
-	Method  string `json:"method"`
-	Params  []any  `json:"params"`
-	ID      int    `json:"id"`
-}
-
 type SuccessResponse struct {
 	JSONRPC string      `json:"jsonrpc"`
 	Result  interface{} `json:"result"`
