@@ -7,6 +7,7 @@ import (
 
 type Parser struct {
 	Req Request
+	Res Response[any]
 }
 
 func NewParser() *Parser {
