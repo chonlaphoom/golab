@@ -1,14 +1,9 @@
 package mcp
 
-/*
- * MCP Protocol structures
- *
- */
-
 type InitializeRequest struct {
-	ProtocolVersion string      `json:"protocolVersion"`
-	Capabilities    interface{} `json:"capabilities"`
-	ClientInfo      ClientInfo  `json:"clientInfo"`
+	ProtocolVersion string     `json:"protocolVersion"`
+	Capabilities    any        `json:"capabilities"`
+	ClientInfo      ClientInfo `json:"clientInfo"`
 }
 
 type ClientInfo struct {
@@ -23,7 +18,7 @@ type InitializeResponse struct {
 }
 
 type ServerCapabilities struct {
-	Tools interface{} `json:"tools"`
+	Tools any `json:"tools"`
 }
 
 type ServerInfo struct {
@@ -32,9 +27,9 @@ type ServerInfo struct {
 }
 
 type Tool struct {
-	Name        string      `json:"name"`
-	Description string      `json:"description"`
-	InputSchema interface{} `json:"inputSchema"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	InputSchema any    `json:"inputSchema"`
 }
 
 type ListToolsResponse struct {
@@ -42,11 +37,11 @@ type ListToolsResponse struct {
 }
 
 type CallToolRequest struct {
-	Name      string                 `json:"name"`
-	Arguments map[string]interface{} `json:"arguments"`
+	Name      string         `json:"name"`
+	Arguments map[string]any `json:"arguments"`
 }
 
 type ToolResult struct {
-	Content []interface{} `json:"content"`
-	IsError bool          `json:"isError,omitempty"`
+	Content []any `json:"content"`
+	IsError bool  `json:"isError,omitempty"`
 }
