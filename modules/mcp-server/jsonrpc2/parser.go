@@ -12,16 +12,39 @@ type Parser struct {
 type Request struct {
 	JSONRPC        string
 	Method         string
-	Params         any
+	Params         Params
 	ID             int
 	IsNotification bool
+}
+
+type Params struct {
+	data any
+}
+
+func (p *Params) IsArray() bool {
+	_, ok := p.data.([]any)
+	return ok
+}
+
+func (p *Params) IsObject() bool {
+	_, ok := p.data.(map[string]any)
+	return ok
+}
+
+func (p *Params) GetAsArray() ([]any, bool) {
+	arr, ok := p.data.([]any)
+	return arr, ok
+}
+
+func (p *Params) GetAsObject() (map[string]any, bool) {
+	obj, ok := p.data.(map[string]any)
+	return obj, ok
 }
 
 func NewParser() *Parser {
 	return &Parser{}
 }
 
-/* parse and validate a request */
 func (p *Parser) ParseRequest(data []byte) error {
 	type rawRequest struct {
 		Jsonrpc string `json:"jsonrpc"`
@@ -37,12 +60,12 @@ func (p *Parser) ParseRequest(data []byte) error {
 		return RPCError{Code: Parse, Err: err}
 	}
 
-	if p.Req.JSONRPC != "2.0" {
+	if raw.Jsonrpc != "2.0" {
 		return RPCError{Code: InvalidRequest, Err: fmt.Errorf("jsonrpc must be \"2.0\"")}
 	}
 	p.Req.JSONRPC = raw.Jsonrpc
 
-	if p.Req.Method == "" {
+	if raw.Method == "" {
 		return RPCError{Code: InvalidRequest, Err: fmt.Errorf("method is required")}
 	}
 	p.Req.Method = raw.Method
@@ -56,14 +79,42 @@ func (p *Parser) ParseRequest(data []byte) error {
 		case float64:
 			p.Req.ID = int(v)
 		case string:
-			return RPCError{Code: InvalidRequest, Err: fmt.Errorf("string IDs are not supported")}
+			return RPCError{Code: InvalidRequest, Err: fmt.Errorf("string IDs are not supported, for simplicity")}
 		case nil:
 		default:
 			p.Req.IsNotification = true
 		}
 	}
 
-	// parse params
+	if len(raw.Params) > 0 {
+		// skip white space
+		index := 0
+		for index < len(raw.Params) && (raw.Params[index] == ' ' || raw.Params[index] == '\n' || raw.Params[index] == '\t' || raw.Params[index] == '\r') {
+			index++
+		}
+
+		if index < len(raw.Params) {
+			switch raw.Params[index] {
+			case '[':
+				var arrParams []any
+				err := json.Unmarshal(raw.Params, &arrParams)
+				if err != nil {
+					return RPCError{Code: InvalidParams, Err: err}
+				}
+
+				// TODO: check if all elements are same type
+				p.Req.Params.data = arrParams
+			case '{':
+				var objParams map[string]any
+				if err := json.Unmarshal(raw.Params, &objParams); err != nil {
+					return RPCError{Code: InvalidParams, Err: err}
+				}
+				p.Req.Params.data = objParams
+			default:
+				return RPCError{Code: InvalidParams, Err: fmt.Errorf("params must be array or object")}
+			}
+		}
+	}
 
 	return nil
 }

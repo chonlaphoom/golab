@@ -23,16 +23,3 @@ type Error struct {
 	Message string    `json:"message"`
 	Data    string    `json:"data,omitempty"`
 }
-
-type RPCError struct {
-	Code ErrorCode
-	Err  error
-}
-
-type ErrorCode int
-
-const Parse ErrorCode = -32700
-const InvalidRequest ErrorCode = -32600
-const MethodNotFound ErrorCode = -32601
-const InvalidParams ErrorCode = -32602
-const InternalError ErrorCode = -32603
