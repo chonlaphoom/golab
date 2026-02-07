@@ -2,6 +2,9 @@ package main
 
 import (
 	"context"
+	"encoding/json"
+	"errors"
+	"io"
 	"log"
 	"os"
 	"os/signal"
@@ -84,17 +87,38 @@ const protocolVersion = "2026-01-26"
 func main() {
 	log.Printf("MCP Server %s is running...", protocolVersion)
 
-	sig := make(chan os.Signal, 1)
-	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM, syscall.SIGHUP)
-	_, cancel := context.WithCancel(context.Background())
+	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer stop()
+
+	decoder := json.NewDecoder(os.Stdin)
+
+	msgChan := make(chan json.RawMessage)
+	errChan := make(chan error)
+
+	go func() {
+		for {
+			var msg json.RawMessage
+			if err := decoder.Decode(&msg); err != nil {
+				errChan <- err
+				return
+			}
+			msgChan <- msg
+		}
+	}()
 
 	for {
 		select {
-		case <-sig:
-			cancel()
-			log.Println("Shutting down MCP Server...")
+		case <-ctx.Done():
+			log.Println("Received shutdown signal, exiting.")
 			return
-		default:
+		case err := <-errChan:
+			if errors.Is(err, io.EOF) {
+				log.Println("EOF received, exiting.")
+				break
+			}
+			log.Fatalf("Error reading message: %v", err)
+		case msg := <-msgChan:
+			log.Printf("Received message: %s", string(msg))
 		}
 	}
 }
