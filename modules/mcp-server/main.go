@@ -52,6 +52,7 @@ func main() {
 			}
 			log.Fatalf("Error reading message: %v", err)
 		case msg, ok := <-msgChan:
+			// TODO: split into separate goroutine to handle multiple requests concurrently
 			if !ok {
 				log.Println("Message channel closed, exiting.")
 				return
