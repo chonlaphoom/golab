@@ -108,3 +108,626 @@
 2026/02/08 18:16:08 Received message: {"method":"resources/list","jsonrpc":"2.0","id":3}
 2026/02/08 18:16:08 Error handling method prompts/list: unknown method: prompts/list
 2026/02/08 18:16:08 Error handling method resources/list: unknown method: resources/list
+2026/02/08 18:17:08 Message received on channel: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":2,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:17:08 Received message: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":2,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:17:08 Message received on channel: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":3,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:17:08 Received message: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":3,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:17:08 Error handling method notifications/cancelled: unknown method: notifications/cancelled
+2026/02/08 18:17:08 Error handling method notifications/cancelled: unknown method: notifications/cancelled
+2026/02/08 18:17:12 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":4}
+2026/02/08 18:17:12 Received message: {"method":"tools/list","jsonrpc":"2.0","id":4}
+2026/02/08 18:17:12 Sent response for method tools/list
+2026/02/08 18:18:31 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":5}
+2026/02/08 18:18:31 Received message: {"method":"tools/list","jsonrpc":"2.0","id":5}
+2026/02/08 18:18:31 Sent response for method tools/list
+2026/02/08 18:18:38 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":6}
+2026/02/08 18:18:38 Received message: {"method":"tools/list","jsonrpc":"2.0","id":6}
+2026/02/08 18:18:38 Sent response for method tools/list
+2026/02/08 18:18:41 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":7}
+2026/02/08 18:18:41 Received message: {"method":"tools/list","jsonrpc":"2.0","id":7}
+2026/02/08 18:18:41 Sent response for method tools/list
+2026/02/08 18:18:45 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":8}
+2026/02/08 18:18:45 Received message: {"method":"tools/list","jsonrpc":"2.0","id":8}
+2026/02/08 18:18:45 Sent response for method tools/list
+2026/02/08 18:18:48 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":9}
+2026/02/08 18:18:48 Received message: {"method":"tools/list","jsonrpc":"2.0","id":9}
+2026/02/08 18:18:48 Sent response for method tools/list
+2026/02/08 18:18:52 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":10}
+2026/02/08 18:18:52 Received message: {"method":"tools/list","jsonrpc":"2.0","id":10}
+2026/02/08 18:18:52 Sent response for method tools/list
+2026/02/08 18:18:56 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":11}
+2026/02/08 18:18:56 Received message: {"method":"tools/list","jsonrpc":"2.0","id":11}
+2026/02/08 18:18:56 Sent response for method tools/list
+2026/02/08 18:19:12 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":12}
+2026/02/08 18:19:12 Received message: {"method":"tools/list","jsonrpc":"2.0","id":12}
+2026/02/08 18:19:12 Sent response for method tools/list
+2026/02/08 18:19:16 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":13}
+2026/02/08 18:19:16 Received message: {"method":"tools/list","jsonrpc":"2.0","id":13}
+2026/02/08 18:19:16 Sent response for method tools/list
+2026/02/08 18:20:37 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":14}
+2026/02/08 18:20:37 Received message: {"method":"tools/list","jsonrpc":"2.0","id":14}
+2026/02/08 18:20:37 Sent response for method tools/list
+2026/02/08 18:22:04 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":15}
+2026/02/08 18:22:04 Received message: {"method":"tools/list","jsonrpc":"2.0","id":15}
+2026/02/08 18:22:04 Sent response for method tools/list
+2026/02/08 18:22:11 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":16}
+2026/02/08 18:22:11 Received message: {"method":"tools/list","jsonrpc":"2.0","id":16}
+2026/02/08 18:22:11 Sent response for method tools/list
+2026/02/08 18:22:15 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":17}
+2026/02/08 18:22:15 Received message: {"method":"tools/list","jsonrpc":"2.0","id":17}
+2026/02/08 18:22:15 Sent response for method tools/list
+2026/02/08 18:22:31 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":18}
+2026/02/08 18:22:31 Received message: {"method":"tools/list","jsonrpc":"2.0","id":18}
+2026/02/08 18:22:31 Sent response for method tools/list
+2026/02/08 18:22:34 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":19}
+2026/02/08 18:22:34 Received message: {"method":"tools/list","jsonrpc":"2.0","id":19}
+2026/02/08 18:22:34 Sent response for method tools/list
+2026/02/08 18:22:37 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":20}
+2026/02/08 18:22:37 Received message: {"method":"tools/list","jsonrpc":"2.0","id":20}
+2026/02/08 18:22:37 Sent response for method tools/list
+2026/02/08 18:26:42 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":21}
+2026/02/08 18:26:42 Received message: {"method":"tools/list","jsonrpc":"2.0","id":21}
+2026/02/08 18:26:42 Sent response for method tools/list
+2026/02/08 18:30:39 EOF received, exiting.
+2026/02/08 18:30:39 Message channel closed, exiting.
+2026/02/08 18:30:39 Message channel closed, exiting.
+2026/02/08 18:30:39 Message channel closed.
+2026/02/08 18:30:39 Message channel closed, exiting.
+2026/02/08 18:30:39 Message channel closed, exiting.
+2026/02/08 18:30:39 All workers have exited, shutting down MCP server.
+2026/02/08 18:30:51 MCP Server 2025-03-26 is running...
+2026/02/08 18:30:51 Message received on channel: {"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"opencode","version":"1.1.50"}},"jsonrpc":"2.0","id":0}
+2026/02/08 18:30:51 Received message: {"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"opencode","version":"1.1.50"}},"jsonrpc":"2.0","id":0}
+2026/02/08 18:30:51 Initialize params: map[capabilities:map[] clientInfo:map[name:opencode version:1.1.50] protocolVersion:2025-11-25]
+2026/02/08 18:30:51 Sent response for method initialize
+2026/02/08 18:30:51 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2026/02/08 18:30:51 Received message: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2026/02/08 18:30:51 Message received on channel: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2026/02/08 18:30:51 Received message: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2026/02/08 18:30:51 Client initialized notification received
+2026/02/08 18:30:51 Sent response for method tools/list
+2026/02/08 18:30:51 Message received on channel: {"method":"prompts/list","jsonrpc":"2.0","id":2}
+2026/02/08 18:30:51 Received message: {"method":"prompts/list","jsonrpc":"2.0","id":2}
+2026/02/08 18:30:51 Message received on channel: {"method":"resources/list","jsonrpc":"2.0","id":3}
+2026/02/08 18:30:51 Received message: {"method":"resources/list","jsonrpc":"2.0","id":3}
+2026/02/08 18:30:51 Error handling method prompts/list: unknown method: prompts/list
+2026/02/08 18:30:51 Error handling method resources/list: unknown method: resources/list
+2026/02/08 18:30:55 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":4}
+2026/02/08 18:30:55 Received message: {"method":"tools/list","jsonrpc":"2.0","id":4}
+2026/02/08 18:30:55 Sent response for method tools/list
+2026/02/08 18:31:51 Message received on channel: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":2,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:31:51 Received message: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":2,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:31:51 Error handling method notifications/cancelled: unknown method: notifications/cancelled
+2026/02/08 18:31:51 Message received on channel: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":3,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:31:51 Received message: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":3,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:31:51 Error handling method notifications/cancelled: unknown method: notifications/cancelled
+2026/02/08 18:32:10 2 : EOF received, exiting.
+2026/02/08 18:32:10 0 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:10 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:10 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:10 1 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:10 Message channel closed.
+2026/02/08 18:32:10 0 : Message channel drained, exiting.
+2026/02/08 18:32:10 4 : Message channel drained, exiting.
+2026/02/08 18:32:10 1 : Message channel drained, exiting.
+2026/02/08 18:32:10 3 : Message channel drained, exiting.
+2026/02/08 18:32:10 All workers have exited, shutting down MCP server.
+2026/02/08 18:32:15 MCP Server 2025-03-26 is running...
+2026/02/08 18:32:15 1 : EOF received, exiting.
+2026/02/08 18:32:15 Message received on channel: {"jsonrpc":"2.0","method":"initialize","params":[{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"mcp-client","version":"0.0.1"}}],"id":1}
+2026/02/08 18:32:15 Received message: {"jsonrpc":"2.0","method":"initialize","params":[{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"mcp-client","version":"0.0.1"}}],"id":1}
+2026/02/08 18:32:15 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 0 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 Message channel closed.
+2026/02/08 18:32:15 3 : Message channel drained, exiting.
+2026/02/08 18:32:15 0 : Message channel drained, exiting.
+2026/02/08 18:32:15 Sent response for method initialize
+2026/02/08 18:32:15 4 : Message channel closed, exiting.
+2026/02/08 18:32:15 2 : Message channel drained, exiting.
+2026/02/08 18:32:15 All workers have exited, shutting down MCP server.
+2026/02/08 18:32:15 MCP Server 2025-03-26 is running...
+2026/02/08 18:32:15 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 0 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 Message received on channel: {"jsonrpc":"2.0","method":"tools/list","params":[],"id":2}
+2026/02/08 18:32:15 Received message: {"jsonrpc":"2.0","method":"tools/list","params":[],"id":2}
+2026/02/08 18:32:15 0 : Message channel drained, exiting.
+2026/02/08 18:32:15 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 2 : Message channel drained, exiting.
+2026/02/08 18:32:15 Message channel closed.
+2026/02/08 18:32:15 3 : Message channel drained, exiting.
+2026/02/08 18:32:15 1 : EOF received, exiting.
+2026/02/08 18:32:15 Sent response for method tools/list
+2026/02/08 18:32:15 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 4 : Message channel drained, exiting.
+2026/02/08 18:32:15 All workers have exited, shutting down MCP server.
+2026/02/08 18:32:15 MCP Server 2025-03-26 is running...
+2026/02/08 18:32:15 1 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 3 : Message channel drained, exiting.
+2026/02/08 18:32:15 1 : Message channel drained, exiting.
+2026/02/08 18:32:15 Message channel closed.
+2026/02/08 18:32:15 2 : EOF received, exiting.
+2026/02/08 18:32:15 Message received on channel: {"jsonrpc":"2.0","method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world"}},"id":3}
+2026/02/08 18:32:15 Received message: {"jsonrpc":"2.0","method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world"}},"id":3}
+2026/02/08 18:32:15 0 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 0 : Message channel drained, exiting.
+2026/02/08 18:32:15 Sent response for method tools/call
+2026/02/08 18:32:15 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 18:32:15 4 : Message channel drained, exiting.
+2026/02/08 18:32:15 All workers have exited, shutting down MCP server.
+2026/02/08 18:32:22 MCP Server 2025-03-26 is running...
+2026/02/08 18:32:22 Message received on channel: {"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"opencode","version":"1.1.50"}},"jsonrpc":"2.0","id":0}
+2026/02/08 18:32:22 Received message: {"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"opencode","version":"1.1.50"}},"jsonrpc":"2.0","id":0}
+2026/02/08 18:32:22 Initialize params: map[capabilities:map[] clientInfo:map[name:opencode version:1.1.50] protocolVersion:2025-11-25]
+2026/02/08 18:32:22 Sent response for method initialize
+2026/02/08 18:32:22 Message received on channel: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2026/02/08 18:32:22 Received message: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2026/02/08 18:32:22 Client initialized notification received
+2026/02/08 18:32:22 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2026/02/08 18:32:22 Received message: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2026/02/08 18:32:22 Sent response for method tools/list
+2026/02/08 18:32:22 Message received on channel: {"method":"prompts/list","jsonrpc":"2.0","id":2}
+2026/02/08 18:32:22 Received message: {"method":"prompts/list","jsonrpc":"2.0","id":2}
+2026/02/08 18:32:22 Error handling method prompts/list: unknown method: prompts/list
+2026/02/08 18:32:22 Message received on channel: {"method":"resources/list","jsonrpc":"2.0","id":3}
+2026/02/08 18:32:22 Received message: {"method":"resources/list","jsonrpc":"2.0","id":3}
+2026/02/08 18:32:22 Error handling method resources/list: unknown method: resources/list
+2026/02/08 18:32:31 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":4}
+2026/02/08 18:32:31 Received message: {"method":"tools/list","jsonrpc":"2.0","id":4}
+2026/02/08 18:32:31 Sent response for method tools/list
+2026/02/08 18:33:22 Message received on channel: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":3,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:33:22 Received message: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":3,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:33:22 Message received on channel: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":2,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:33:22 Received message: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":2,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 18:33:22 Error handling method notifications/cancelled: unknown method: notifications/cancelled
+2026/02/08 18:33:22 Error handling method notifications/cancelled: unknown method: notifications/cancelled
+2026/02/08 18:33:49 Message received on channel: {"method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world 1"}},"jsonrpc":"2.0","id":5}
+2026/02/08 18:33:49 Received message: {"method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world 1"}},"jsonrpc":"2.0","id":5}
+2026/02/08 18:33:49 Sent response for method tools/call
+2026/02/08 18:33:50 Message received on channel: {"method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world 2"}},"jsonrpc":"2.0","id":6}
+2026/02/08 18:33:50 Received message: {"method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world 2"}},"jsonrpc":"2.0","id":6}
+2026/02/08 18:33:50 Sent response for method tools/call
+2026/02/08 18:33:50 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":7}
+2026/02/08 18:33:50 Received message: {"method":"tools/list","jsonrpc":"2.0","id":7}
+2026/02/08 18:33:50 Sent response for method tools/list
+2026/02/08 18:34:13 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":8}
+2026/02/08 18:34:13 Received message: {"method":"tools/list","jsonrpc":"2.0","id":8}
+2026/02/08 18:34:13 Sent response for method tools/list
+2026/02/08 19:00:15 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":9}
+2026/02/08 19:00:15 Received message: {"method":"tools/list","jsonrpc":"2.0","id":9}
+2026/02/08 19:00:15 Sent response for method tools/list
+2026/02/08 19:01:36 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":10}
+2026/02/08 19:01:36 Received message: {"method":"tools/list","jsonrpc":"2.0","id":10}
+2026/02/08 19:01:36 Sent response for method tools/list
+2026/02/08 19:16:45 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":11}
+2026/02/08 19:16:45 Received message: {"method":"tools/list","jsonrpc":"2.0","id":11}
+2026/02/08 19:16:45 Sent response for method tools/list
+2026/02/08 19:18:17 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":12}
+2026/02/08 19:18:17 Received message: {"method":"tools/list","jsonrpc":"2.0","id":12}
+2026/02/08 19:18:17 Sent response for method tools/list
+2026/02/08 19:18:20 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":13}
+2026/02/08 19:18:20 Received message: {"method":"tools/list","jsonrpc":"2.0","id":13}
+2026/02/08 19:18:20 Sent response for method tools/list
+2026/02/08 19:18:36 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":14}
+2026/02/08 19:18:36 Received message: {"method":"tools/list","jsonrpc":"2.0","id":14}
+2026/02/08 19:18:36 Sent response for method tools/list
+2026/02/08 19:18:41 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":15}
+2026/02/08 19:18:41 Received message: {"method":"tools/list","jsonrpc":"2.0","id":15}
+2026/02/08 19:18:41 Sent response for method tools/list
+2026/02/08 19:18:51 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":16}
+2026/02/08 19:18:51 Received message: {"method":"tools/list","jsonrpc":"2.0","id":16}
+2026/02/08 19:18:51 Sent response for method tools/list
+2026/02/08 19:18:55 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":17}
+2026/02/08 19:18:55 Received message: {"method":"tools/list","jsonrpc":"2.0","id":17}
+2026/02/08 19:18:55 Sent response for method tools/list
+2026/02/08 19:18:59 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":18}
+2026/02/08 19:18:59 Received message: {"method":"tools/list","jsonrpc":"2.0","id":18}
+2026/02/08 19:18:59 Sent response for method tools/list
+2026/02/08 19:21:53 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":19}
+2026/02/08 19:21:53 Received message: {"method":"tools/list","jsonrpc":"2.0","id":19}
+2026/02/08 19:21:53 Sent response for method tools/list
+2026/02/08 19:22:25 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":20}
+2026/02/08 19:22:25 Received message: {"method":"tools/list","jsonrpc":"2.0","id":20}
+2026/02/08 19:22:25 Sent response for method tools/list
+2026/02/08 19:22:30 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":21}
+2026/02/08 19:22:30 Received message: {"method":"tools/list","jsonrpc":"2.0","id":21}
+2026/02/08 19:22:30 Sent response for method tools/list
+2026/02/08 19:22:35 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":22}
+2026/02/08 19:22:35 Received message: {"method":"tools/list","jsonrpc":"2.0","id":22}
+2026/02/08 19:22:35 Sent response for method tools/list
+2026/02/08 19:24:00 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":23}
+2026/02/08 19:24:00 Received message: {"method":"tools/list","jsonrpc":"2.0","id":23}
+2026/02/08 19:24:00 Sent response for method tools/list
+2026/02/08 19:24:04 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":24}
+2026/02/08 19:24:04 Received message: {"method":"tools/list","jsonrpc":"2.0","id":24}
+2026/02/08 19:24:04 Sent response for method tools/list
+2026/02/08 19:24:06 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":25}
+2026/02/08 19:24:06 Received message: {"method":"tools/list","jsonrpc":"2.0","id":25}
+2026/02/08 19:24:06 Sent response for method tools/list
+2026/02/08 19:24:09 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":26}
+2026/02/08 19:24:09 Received message: {"method":"tools/list","jsonrpc":"2.0","id":26}
+2026/02/08 19:24:09 Sent response for method tools/list
+2026/02/08 19:24:40 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":27}
+2026/02/08 19:24:40 Received message: {"method":"tools/list","jsonrpc":"2.0","id":27}
+2026/02/08 19:24:40 Sent response for method tools/list
+2026/02/08 19:24:46 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":28}
+2026/02/08 19:24:46 Received message: {"method":"tools/list","jsonrpc":"2.0","id":28}
+2026/02/08 19:24:46 Sent response for method tools/list
+2026/02/08 19:24:49 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":29}
+2026/02/08 19:24:49 Received message: {"method":"tools/list","jsonrpc":"2.0","id":29}
+2026/02/08 19:24:49 Sent response for method tools/list
+2026/02/08 19:24:53 MCP Server 2025-03-26 is running...
+2026/02/08 19:24:53 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 Message received on channel: {"jsonrpc":"2.0","method":"initialize","params":[{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"mcp-client","version":"0.0.1"}}],"id":1}
+2026/02/08 19:24:53 Message channel closed.
+2026/02/08 19:24:53 Received message: {"jsonrpc":"2.0","method":"initialize","params":[{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"mcp-client","version":"0.0.1"}}],"id":1}
+2026/02/08 19:24:53 3 : Message channel drained, exiting.
+2026/02/08 19:24:53 0 : EOF received, exiting.
+2026/02/08 19:24:53 1 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 1 : Message channel drained, exiting.
+2026/02/08 19:24:53 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 2 : Message channel drained, exiting.
+2026/02/08 19:24:53 Sent response for method initialize
+2026/02/08 19:24:53 4 : Message channel closed, exiting.
+2026/02/08 19:24:53 All workers have exited, shutting down MCP server.
+2026/02/08 19:24:53 MCP Server 2025-03-26 is running...
+2026/02/08 19:24:53 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 1 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 0 : EOF received, exiting.
+2026/02/08 19:24:53 Message received on channel: {"jsonrpc":"2.0","method":"tools/list","params":[],"id":2}
+2026/02/08 19:24:53 Received message: {"jsonrpc":"2.0","method":"tools/list","params":[],"id":2}
+2026/02/08 19:24:53 Sent response for method tools/list
+2026/02/08 19:24:53 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 Message channel closed.
+2026/02/08 19:24:53 2 : Message channel drained, exiting.
+2026/02/08 19:24:53 4 : Message channel drained, exiting.
+2026/02/08 19:24:53 3 : Message channel drained, exiting.
+2026/02/08 19:24:53 1 : Message channel drained, exiting.
+2026/02/08 19:24:53 All workers have exited, shutting down MCP server.
+2026/02/08 19:24:53 MCP Server 2025-03-26 is running...
+2026/02/08 19:24:53 0 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 1 : EOF received, exiting.
+2026/02/08 19:24:53 Message received on channel: {"jsonrpc":"2.0","method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world"}},"id":3}
+2026/02/08 19:24:53 Received message: {"jsonrpc":"2.0","method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world"}},"id":3}
+2026/02/08 19:24:53 Message channel closed.
+2026/02/08 19:24:53 0 : Message channel drained, exiting.
+2026/02/08 19:24:53 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 2 : Message channel drained, exiting.
+2026/02/08 19:24:53 3 : Message channel drained, exiting.
+2026/02/08 19:24:53 Sent response for method tools/call
+2026/02/08 19:24:53 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:24:53 4 : Message channel drained, exiting.
+2026/02/08 19:24:53 All workers have exited, shutting down MCP server.
+2026/02/08 19:24:54 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":30}
+2026/02/08 19:24:54 Received message: {"method":"tools/list","jsonrpc":"2.0","id":30}
+2026/02/08 19:24:54 Sent response for method tools/list
+2026/02/08 19:27:52 0 : EOF received, exiting.
+2026/02/08 19:27:52 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:27:52 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:27:52 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:27:52 1 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:27:52 Message channel closed.
+2026/02/08 19:27:52 3 : Message channel drained, exiting.
+2026/02/08 19:27:52 1 : Message channel drained, exiting.
+2026/02/08 19:27:52 2 : Message channel drained, exiting.
+2026/02/08 19:27:52 4 : Message channel drained, exiting.
+2026/02/08 19:27:52 All workers have exited, shutting down MCP server.
+2026/02/08 19:27:53 MCP Server 2025-03-26 is running...
+2026/02/08 19:27:53 Message received on channel: {"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"opencode","version":"1.1.50"}},"jsonrpc":"2.0","id":0}
+2026/02/08 19:27:53 Received message: {"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"opencode","version":"1.1.50"}},"jsonrpc":"2.0","id":0}
+2026/02/08 19:27:53 Initialize params: map[capabilities:map[] clientInfo:map[name:opencode version:1.1.50] protocolVersion:2025-11-25]
+2026/02/08 19:27:53 Sent response for method initialize
+2026/02/08 19:27:53 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2026/02/08 19:27:53 Received message: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2026/02/08 19:27:53 Message received on channel: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2026/02/08 19:27:53 Received message: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2026/02/08 19:27:53 Client initialized notification received
+2026/02/08 19:27:53 Sent response for method tools/list
+2026/02/08 19:28:15 0 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:28:15 2 : EOF received, exiting.
+2026/02/08 19:28:15 1 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:28:15 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:28:15 3 : Message channel drained, exiting.
+2026/02/08 19:28:15 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:28:15 1 : Message channel drained, exiting.
+2026/02/08 19:28:15 Message channel closed.
+2026/02/08 19:28:15 0 : Message channel drained, exiting.
+2026/02/08 19:28:15 4 : Message channel drained, exiting.
+2026/02/08 19:28:15 All workers have exited, shutting down MCP server.
+2026/02/08 19:28:25 MCP Server 2025-03-26 is running...
+2026/02/08 19:28:25 Message received on channel: {"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"opencode","version":"1.1.50"}},"jsonrpc":"2.0","id":0}
+2026/02/08 19:28:25 Received message: {"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"opencode","version":"1.1.50"}},"jsonrpc":"2.0","id":0}
+2026/02/08 19:28:25 Initialize params: map[capabilities:map[] clientInfo:map[name:opencode version:1.1.50] protocolVersion:2025-11-25]
+2026/02/08 19:28:25 Sent response for method initialize
+2026/02/08 19:28:25 Message received on channel: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2026/02/08 19:28:25 Received message: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2026/02/08 19:28:25 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2026/02/08 19:28:25 Received message: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2026/02/08 19:28:25 Client initialized notification received
+2026/02/08 19:28:25 Sent response for method tools/list
+2026/02/08 19:28:25 Message received on channel: {"method":"prompts/list","jsonrpc":"2.0","id":2}
+2026/02/08 19:28:25 Received message: {"method":"prompts/list","jsonrpc":"2.0","id":2}
+2026/02/08 19:28:25 Message received on channel: {"method":"resources/list","jsonrpc":"2.0","id":3}
+2026/02/08 19:28:25 Error handling method prompts/list: unknown method: prompts/list
+2026/02/08 19:28:25 Received message: {"method":"resources/list","jsonrpc":"2.0","id":3}
+2026/02/08 19:28:25 Error handling method resources/list: unknown method: resources/list
+2026/02/08 19:28:41 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":4}
+2026/02/08 19:28:41 Received message: {"method":"tools/list","jsonrpc":"2.0","id":4}
+2026/02/08 19:28:41 Sent response for method tools/list
+2026/02/08 19:28:45 Message received on channel: {"method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world"}},"jsonrpc":"2.0","id":5}
+2026/02/08 19:28:45 Received message: {"method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world"}},"jsonrpc":"2.0","id":5}
+2026/02/08 19:28:45 Sent response for method tools/call
+2026/02/08 19:28:45 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":6}
+2026/02/08 19:28:45 Received message: {"method":"tools/list","jsonrpc":"2.0","id":6}
+2026/02/08 19:28:45 Sent response for method tools/list
+2026/02/08 19:29:25 Message received on channel: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":3,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 19:29:25 Message received on channel: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":2,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 19:29:25 Received message: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":2,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 19:29:25 Received message: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":3,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 19:29:25 Error handling method notifications/cancelled: unknown method: notifications/cancelled
+2026/02/08 19:29:25 Error handling method notifications/cancelled: unknown method: notifications/cancelled
+2026/02/08 19:29:32 0 : EOF received, exiting.
+2026/02/08 19:29:32 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:32 1 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:32 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:32 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:32 1 : Message channel drained, exiting.
+2026/02/08 19:29:32 2 : Message channel drained, exiting.
+2026/02/08 19:29:32 3 : Message channel drained, exiting.
+2026/02/08 19:29:32 4 : Message channel drained, exiting.
+2026/02/08 19:29:32 Message channel closed.
+2026/02/08 19:29:32 All workers have exited, shutting down MCP server.
+2026/02/08 19:29:38 MCP Server 2025-03-26 is running...
+2026/02/08 19:29:38 1 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 0 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 2 : Message channel drained, exiting.
+2026/02/08 19:29:38 1 : Message channel drained, exiting.
+2026/02/08 19:29:38 Message received on channel: {"jsonrpc":"2.0","method":"initialize","params":[{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"mcp-client","version":"0.0.1"}}],"id":1}
+2026/02/08 19:29:38 Received message: {"jsonrpc":"2.0","method":"initialize","params":[{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"mcp-client","version":"0.0.1"}}],"id":1}
+2026/02/08 19:29:38 3 : EOF received, exiting.
+2026/02/08 19:29:38 0 : Message channel drained, exiting.
+2026/02/08 19:29:38 Message channel closed.
+2026/02/08 19:29:38 Sent response for method initialize
+2026/02/08 19:29:38 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 4 : Message channel drained, exiting.
+2026/02/08 19:29:38 All workers have exited, shutting down MCP server.
+2026/02/08 19:29:38 MCP Server 2025-03-26 is running...
+2026/02/08 19:29:38 Message channel closed.
+2026/02/08 19:29:38 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 3 : Message channel drained, exiting.
+2026/02/08 19:29:38 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 2 : Message channel drained, exiting.
+2026/02/08 19:29:38 0 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 0 : Message channel drained, exiting.
+2026/02/08 19:29:38 1 : EOF received, exiting.
+2026/02/08 19:29:38 Message received on channel: {"jsonrpc":"2.0","method":"tools/list","params":[],"id":2}
+2026/02/08 19:29:38 Received message: {"jsonrpc":"2.0","method":"tools/list","params":[],"id":2}
+2026/02/08 19:29:38 Sent response for method tools/list
+2026/02/08 19:29:38 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 4 : Message channel drained, exiting.
+2026/02/08 19:29:38 All workers have exited, shutting down MCP server.
+2026/02/08 19:29:38 MCP Server 2025-03-26 is running...
+2026/02/08 19:29:38 Message received on channel: {"jsonrpc":"2.0","method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world"}},"id":3}
+2026/02/08 19:29:38 Received message: {"jsonrpc":"2.0","method":"tools/call","params":{"name":"echo","arguments":{"text":"hello world"}},"id":3}
+2026/02/08 19:29:38 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 0 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 1 : EOF received, exiting.
+2026/02/08 19:29:38 Message channel closed.
+2026/02/08 19:29:38 2 : Message channel drained, exiting.
+2026/02/08 19:29:38 0 : Message channel drained, exiting.
+2026/02/08 19:29:38 3 : Message channel drained, exiting.
+2026/02/08 19:29:38 Sent response for method tools/call
+2026/02/08 19:29:38 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:29:38 4 : Message channel drained, exiting.
+2026/02/08 19:29:38 All workers have exited, shutting down MCP server.
+2026/02/08 19:30:20 MCP Server 2025-03-26 is running...
+2026/02/08 19:30:25 4 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:30:25 2 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:30:25 3 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:30:25 0 : Error reading message: invalid character 'e' in literal true (expecting 'r')
+2026/02/08 19:30:25 1 : Received shutdown signal, draining remaining messages...
+2026/02/08 19:30:25 2 : Message channel drained, exiting.
+2026/02/08 19:30:25 Message channel closed.
+2026/02/08 19:30:25 1 : Message channel drained, exiting.
+2026/02/08 19:30:25 3 : Message channel drained, exiting.
+2026/02/08 19:30:25 4 : Message channel drained, exiting.
+2026/02/08 19:30:25 All workers have exited, shutting down MCP server.
+2026/02/08 19:35:31 MCP Server 2025-03-26 is running...
+2026/02/08 19:35:31 Message received on channel: {"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"opencode","version":"1.1.50"}},"jsonrpc":"2.0","id":0}
+2026/02/08 19:35:31 Received message: {"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"opencode","version":"1.1.50"}},"jsonrpc":"2.0","id":0}
+2026/02/08 19:35:31 Initialize params: map[capabilities:map[] clientInfo:map[name:opencode version:1.1.50] protocolVersion:2025-11-25]
+2026/02/08 19:35:31 Sent response for method initialize
+2026/02/08 19:35:31 Message received on channel: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2026/02/08 19:35:31 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2026/02/08 19:35:31 Received message: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2026/02/08 19:35:31 Received message: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2026/02/08 19:35:31 Client initialized notification received
+2026/02/08 19:35:31 Sent response for method tools/list
+2026/02/08 19:35:31 Message received on channel: {"method":"prompts/list","jsonrpc":"2.0","id":2}
+2026/02/08 19:35:31 Received message: {"method":"prompts/list","jsonrpc":"2.0","id":2}
+2026/02/08 19:35:31 Message received on channel: {"method":"resources/list","jsonrpc":"2.0","id":3}
+2026/02/08 19:35:31 Received message: {"method":"resources/list","jsonrpc":"2.0","id":3}
+2026/02/08 19:35:31 Error handling method prompts/list: unknown method: prompts/list
+2026/02/08 19:35:31 Error handling method resources/list: unknown method: resources/list
+2026/02/08 19:35:47 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":4}
+2026/02/08 19:35:47 Received message: {"method":"tools/list","jsonrpc":"2.0","id":4}
+2026/02/08 19:35:47 Sent response for method tools/list
+2026/02/08 19:35:52 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":5}
+2026/02/08 19:35:52 Received message: {"method":"tools/list","jsonrpc":"2.0","id":5}
+2026/02/08 19:35:52 Sent response for method tools/list
+2026/02/08 19:35:57 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":6}
+2026/02/08 19:35:57 Received message: {"method":"tools/list","jsonrpc":"2.0","id":6}
+2026/02/08 19:35:57 Sent response for method tools/list
+2026/02/08 19:36:00 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":7}
+2026/02/08 19:36:00 Received message: {"method":"tools/list","jsonrpc":"2.0","id":7}
+2026/02/08 19:36:00 Sent response for method tools/list
+2026/02/08 19:36:04 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":8}
+2026/02/08 19:36:04 Received message: {"method":"tools/list","jsonrpc":"2.0","id":8}
+2026/02/08 19:36:04 Sent response for method tools/list
+2026/02/08 19:36:06 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":9}
+2026/02/08 19:36:06 Received message: {"method":"tools/list","jsonrpc":"2.0","id":9}
+2026/02/08 19:36:06 Sent response for method tools/list
+2026/02/08 19:36:31 Message received on channel: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":3,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 19:36:31 Received message: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":3,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 19:36:31 Message received on channel: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":2,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 19:36:31 Received message: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":2,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026/02/08 19:36:31 Error handling method notifications/cancelled: unknown method: notifications/cancelled
+2026/02/08 19:36:31 Error handling method notifications/cancelled: unknown method: notifications/cancelled
+2026/02/08 19:36:53 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":10}
+2026/02/08 19:36:53 Received message: {"method":"tools/list","jsonrpc":"2.0","id":10}
+2026/02/08 19:36:53 Sent response for method tools/list
+2026/02/08 19:37:31 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":11}
+2026/02/08 19:37:31 Received message: {"method":"tools/list","jsonrpc":"2.0","id":11}
+2026/02/08 19:37:31 Sent response for method tools/list
+2026/02/08 19:37:36 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":12}
+2026/02/08 19:37:36 Received message: {"method":"tools/list","jsonrpc":"2.0","id":12}
+2026/02/08 19:37:36 Sent response for method tools/list
+2026/02/08 19:38:09 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":13}
+2026/02/08 19:38:09 Received message: {"method":"tools/list","jsonrpc":"2.0","id":13}
+2026/02/08 19:38:09 Sent response for method tools/list
+2026/02/08 19:38:13 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":14}
+2026/02/08 19:38:13 Received message: {"method":"tools/list","jsonrpc":"2.0","id":14}
+2026/02/08 19:38:13 Sent response for method tools/list
+2026/02/08 19:38:59 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":15}
+2026/02/08 19:38:59 Received message: {"method":"tools/list","jsonrpc":"2.0","id":15}
+2026/02/08 19:38:59 Sent response for method tools/list
+2026/02/08 19:39:32 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":16}
+2026/02/08 19:39:32 Received message: {"method":"tools/list","jsonrpc":"2.0","id":16}
+2026/02/08 19:39:32 Sent response for method tools/list
+2026/02/08 19:39:37 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":17}
+2026/02/08 19:39:37 Received message: {"method":"tools/list","jsonrpc":"2.0","id":17}
+2026/02/08 19:39:37 Sent response for method tools/list
+2026/02/08 19:40:26 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":18}
+2026/02/08 19:40:26 Received message: {"method":"tools/list","jsonrpc":"2.0","id":18}
+2026/02/08 19:40:26 Sent response for method tools/list
+2026/02/08 19:40:35 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":19}
+2026/02/08 19:40:35 Received message: {"method":"tools/list","jsonrpc":"2.0","id":19}
+2026/02/08 19:40:35 Sent response for method tools/list
+2026/02/08 19:40:38 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":20}
+2026/02/08 19:40:38 Received message: {"method":"tools/list","jsonrpc":"2.0","id":20}
+2026/02/08 19:40:38 Sent response for method tools/list
+2026/02/08 19:40:43 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":21}
+2026/02/08 19:40:43 Received message: {"method":"tools/list","jsonrpc":"2.0","id":21}
+2026/02/08 19:40:43 Sent response for method tools/list
+2026/02/08 19:40:47 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":22}
+2026/02/08 19:40:47 Received message: {"method":"tools/list","jsonrpc":"2.0","id":22}
+2026/02/08 19:40:47 Sent response for method tools/list
+2026/02/08 19:40:53 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":23}
+2026/02/08 19:40:53 Received message: {"method":"tools/list","jsonrpc":"2.0","id":23}
+2026/02/08 19:40:53 Sent response for method tools/list
+2026/02/08 19:40:56 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":24}
+2026/02/08 19:40:56 Received message: {"method":"tools/list","jsonrpc":"2.0","id":24}
+2026/02/08 19:40:56 Sent response for method tools/list
+2026/02/08 19:41:05 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":25}
+2026/02/08 19:41:05 Received message: {"method":"tools/list","jsonrpc":"2.0","id":25}
+2026/02/08 19:41:05 Sent response for method tools/list
+2026/02/08 19:41:08 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":26}
+2026/02/08 19:41:08 Received message: {"method":"tools/list","jsonrpc":"2.0","id":26}
+2026/02/08 19:41:08 Sent response for method tools/list
+2026/02/08 19:41:14 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":27}
+2026/02/08 19:41:14 Received message: {"method":"tools/list","jsonrpc":"2.0","id":27}
+2026/02/08 19:41:14 Sent response for method tools/list
+2026/02/08 19:41:19 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":28}
+2026/02/08 19:41:19 Received message: {"method":"tools/list","jsonrpc":"2.0","id":28}
+2026/02/08 19:41:19 Sent response for method tools/list
+2026/02/08 19:41:27 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":29}
+2026/02/08 19:41:27 Received message: {"method":"tools/list","jsonrpc":"2.0","id":29}
+2026/02/08 19:41:27 Sent response for method tools/list
+2026/02/08 19:41:33 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":30}
+2026/02/08 19:41:33 Received message: {"method":"tools/list","jsonrpc":"2.0","id":30}
+2026/02/08 19:41:33 Sent response for method tools/list
+2026/02/08 19:41:39 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":31}
+2026/02/08 19:41:39 Received message: {"method":"tools/list","jsonrpc":"2.0","id":31}
+2026/02/08 19:41:39 Sent response for method tools/list
+2026/02/08 19:41:45 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":32}
+2026/02/08 19:41:45 Received message: {"method":"tools/list","jsonrpc":"2.0","id":32}
+2026/02/08 19:41:45 Sent response for method tools/list
+2026/02/08 19:41:50 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":33}
+2026/02/08 19:41:50 Received message: {"method":"tools/list","jsonrpc":"2.0","id":33}
+2026/02/08 19:41:50 Sent response for method tools/list
+2026/02/08 19:41:56 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":34}
+2026/02/08 19:41:56 Received message: {"method":"tools/list","jsonrpc":"2.0","id":34}
+2026/02/08 19:41:56 Sent response for method tools/list
+2026/02/08 19:42:04 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":35}
+2026/02/08 19:42:04 Received message: {"method":"tools/list","jsonrpc":"2.0","id":35}
+2026/02/08 19:42:04 Sent response for method tools/list
+2026/02/08 19:42:18 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":36}
+2026/02/08 19:42:18 Received message: {"method":"tools/list","jsonrpc":"2.0","id":36}
+2026/02/08 19:42:18 Sent response for method tools/list
+2026/02/08 19:42:23 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":37}
+2026/02/08 19:42:23 Received message: {"method":"tools/list","jsonrpc":"2.0","id":37}
+2026/02/08 19:42:23 Sent response for method tools/list
+2026/02/08 19:42:28 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":38}
+2026/02/08 19:42:28 Received message: {"method":"tools/list","jsonrpc":"2.0","id":38}
+2026/02/08 19:42:28 Sent response for method tools/list
+2026/02/08 19:42:32 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":39}
+2026/02/08 19:42:32 Received message: {"method":"tools/list","jsonrpc":"2.0","id":39}
+2026/02/08 19:42:32 Sent response for method tools/list
+2026/02/08 19:42:37 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":40}
+2026/02/08 19:42:37 Received message: {"method":"tools/list","jsonrpc":"2.0","id":40}
+2026/02/08 19:42:37 Sent response for method tools/list
+2026/02/08 19:42:41 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":41}
+2026/02/08 19:42:41 Received message: {"method":"tools/list","jsonrpc":"2.0","id":41}
+2026/02/08 19:42:41 Sent response for method tools/list
+2026/02/08 19:42:47 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":42}
+2026/02/08 19:42:47 Received message: {"method":"tools/list","jsonrpc":"2.0","id":42}
+2026/02/08 19:42:47 Sent response for method tools/list
+2026/02/08 19:42:50 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":43}
+2026/02/08 19:42:50 Received message: {"method":"tools/list","jsonrpc":"2.0","id":43}
+2026/02/08 19:42:50 Sent response for method tools/list
+2026/02/08 19:42:56 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":44}
+2026/02/08 19:42:56 Received message: {"method":"tools/list","jsonrpc":"2.0","id":44}
+2026/02/08 19:42:56 Sent response for method tools/list
+2026/02/08 19:43:01 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":45}
+2026/02/08 19:43:01 Received message: {"method":"tools/list","jsonrpc":"2.0","id":45}
+2026/02/08 19:43:01 Sent response for method tools/list
+2026/02/08 19:43:06 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":46}
+2026/02/08 19:43:06 Received message: {"method":"tools/list","jsonrpc":"2.0","id":46}
+2026/02/08 19:43:06 Sent response for method tools/list
+2026/02/08 19:43:10 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":47}
+2026/02/08 19:43:10 Received message: {"method":"tools/list","jsonrpc":"2.0","id":47}
+2026/02/08 19:43:10 Sent response for method tools/list
+2026/02/08 19:43:37 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":48}
+2026/02/08 19:43:37 Received message: {"method":"tools/list","jsonrpc":"2.0","id":48}
+2026/02/08 19:43:37 Sent response for method tools/list
+2026/02/08 19:43:42 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":49}
+2026/02/08 19:43:42 Received message: {"method":"tools/list","jsonrpc":"2.0","id":49}
+2026/02/08 19:43:42 Sent response for method tools/list
+2026/02/08 19:43:46 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":50}
+2026/02/08 19:43:46 Received message: {"method":"tools/list","jsonrpc":"2.0","id":50}
+2026/02/08 19:43:46 Sent response for method tools/list
+2026/02/08 19:43:48 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":51}
+2026/02/08 19:43:48 Received message: {"method":"tools/list","jsonrpc":"2.0","id":51}
+2026/02/08 19:43:48 Sent response for method tools/list
+2026/02/08 19:43:54 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":52}
+2026/02/08 19:43:54 Received message: {"method":"tools/list","jsonrpc":"2.0","id":52}
+2026/02/08 19:43:54 Sent response for method tools/list
+2026/02/08 19:43:58 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":53}
+2026/02/08 19:43:58 Received message: {"method":"tools/list","jsonrpc":"2.0","id":53}
+2026/02/08 19:43:58 Sent response for method tools/list
+2026/02/08 19:48:16 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":54}
+2026/02/08 19:48:16 Received message: {"method":"tools/list","jsonrpc":"2.0","id":54}
+2026/02/08 19:48:16 Sent response for method tools/list
+2026/02/08 19:48:21 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":55}
+2026/02/08 19:48:21 Received message: {"method":"tools/list","jsonrpc":"2.0","id":55}
+2026/02/08 19:48:21 Sent response for method tools/list
+2026/02/08 19:48:45 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":56}
+2026/02/08 19:48:45 Received message: {"method":"tools/list","jsonrpc":"2.0","id":56}
+2026/02/08 19:48:45 Sent response for method tools/list
+2026/02/08 19:48:49 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":57}
+2026/02/08 19:48:49 Received message: {"method":"tools/list","jsonrpc":"2.0","id":57}
+2026/02/08 19:48:49 Sent response for method tools/list
+2026/02/08 19:48:52 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":58}
+2026/02/08 19:48:52 Received message: {"method":"tools/list","jsonrpc":"2.0","id":58}
+2026/02/08 19:48:52 Sent response for method tools/list
+2026/02/08 19:48:59 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":59}
+2026/02/08 19:48:59 Received message: {"method":"tools/list","jsonrpc":"2.0","id":59}
+2026/02/08 19:48:59 Sent response for method tools/list
+2026/02/08 19:49:03 Message received on channel: {"method":"tools/list","jsonrpc":"2.0","id":60}
+2026/02/08 19:49:03 Received message: {"method":"tools/list","jsonrpc":"2.0","id":60}
+2026/02/08 19:49:03 Sent response for method tools/list

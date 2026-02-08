@@ -16,26 +16,31 @@ const (
 	maxWorkers      = 5            // TODO: add timeout for each worker task
 )
 
+type ThreadSafeWriter struct {
+	writer *bufio.Writer
+	mu     sync.Mutex
+}
+
 func main() {
 	setupLog()
 	log.Printf("MCP Server %s is running...", protocolVersion)
 
-	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
-	defer stop()
+	ctx, cancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer cancel()
 
 	wg := &sync.WaitGroup{}
 
 	decoder := json.NewDecoder(os.Stdin)
-	writer := bufio.NewWriter(os.Stdout)
+	safeWriter := &ThreadSafeWriter{writer: bufio.NewWriter(os.Stdout)}
 
 	msgChan := make(chan json.RawMessage)
 	errChan := make(chan error)
 
-	go readAndPushMsgs(ctx, decoder, msgChan, errChan)
+	go readAndPushMsgs(ctx, cancel, decoder, msgChan, errChan)
 
-	for range maxWorkers {
+	for i := range maxWorkers {
 		wg.Add(1)
-		go worker(ctx, wg, writer, msgChan, errChan)
+		go worker(ctx, wg, safeWriter, msgChan, errChan, i)
 	}
 
 	wg.Wait()

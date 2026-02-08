@@ -2,12 +2,17 @@
 BINARY := mcp-server
 TMPDIR := ./tmp
 
-.PHONY: build clean test-init test-discovery test-call test-all run
+.PHONY: build build-race clean test-init test-discovery test-call test-all test-race test-race-only test-race-verbose test-race-report run
 
 build:
 	@echo "Building $(BINARY)..."
 	@mkdir -p $(TMPDIR)
 	@go build -o $(BINARY) . && echo "Build successful."
+
+build-race:
+	@echo "Building $(BINARY) with race detector..."
+	@mkdir -p $(TMPDIR)
+	@go build -race -o $(BINARY) . && echo "Build with race detector successful."
 
 clean:
 	@rm -f $(BINARY)
@@ -37,6 +42,27 @@ test-jsonrpc: build
 
 test-all: test-init test-discovery test-call test-jsonrpc
 	@echo "All tests passed."
+
+test-race: build-race test-init test-discovery test-call test-jsonrpc
+	@echo "All tests passed with race detector."
+
+test-race-only:
+	@echo "=> Running race condition tests only"
+	@mkdir -p $(TMPDIR)
+	@go test -race -run Race ./... -timeout 30s && echo "Race tests: PASS" || (echo "Race tests: FAIL"; exit 1)
+
+test-race-verbose:
+	@echo "=> Running race tests with verbose output"
+	@mkdir -p $(TMPDIR)
+	@go test -race -v -run Race ./... -timeout 30s
+
+test-race-report:
+	@echo "=> Running race tests with detailed report"
+	@mkdir -p $(TMPDIR)
+	@go test -race -v ./... -timeout 60s 2>&1 | tee $(TMPDIR)/race_report.txt
+	@echo ""
+	@echo "=== Race Detection Summary ==="
+	@grep -q "WARNING: DATA RACE" $(TMPDIR)/race_report.txt && (echo "❌ RACE CONDITIONS DETECTED! Check $(TMPDIR)/race_report.txt for details"; exit 1) || echo "✅ No race conditions detected"
 
 test-all-clean: clean test-all clean
 	@echo "All tests passed and cleaned up." 

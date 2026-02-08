@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-func readAndPushMsgs(ctx context.Context, decoder *json.Decoder, msgChan chan<- json.RawMessage, errChan chan<- error) {
+func readAndPushMsgs(ctx context.Context, cancel context.CancelFunc, decoder *json.Decoder, msgChan chan<- json.RawMessage, errChan chan<- error) {
 	defer func() {
 		close(msgChan)
 		log.Println("Message channel closed.")
@@ -21,6 +21,7 @@ func readAndPushMsgs(ctx context.Context, decoder *json.Decoder, msgChan chan<- 
 		var msg json.RawMessage
 		if err := decoder.Decode(&msg); err != nil {
 			errChan <- err
+			cancel()
 			return
 		}
 		msgChan <- msg
