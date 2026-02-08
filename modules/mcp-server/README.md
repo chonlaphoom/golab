@@ -111,14 +111,6 @@ stdin → readAndPushMsgs → msgChan → [Worker 1]
 - **Thread-Safe Writer**: Serializes concurrent writes to stdout with mutex
 - **Graceful Shutdown**: Context cancellation triggers message draining
 
-### Key Components
-
-- `main.go` - Server initialization and coordination
-- `worker.go` - Worker pool and message processing
-- `read_and_distribute.go` - Message reader
-- `jsonrpc2/` - JSON-RPC 2.0 parser and response builder
-- `mcp/` - MCP protocol handlers
-
 ## Development
 
 ### Adding New Tools
@@ -135,16 +127,8 @@ make clean
 make build
 ```
 
-## Notes
-
-- **Zero third-party dependencies** (stdlib only)
-- **Communicates via stdin/stdout** (stdio transport)
-- **Uses JSON-RPC 2.0** for message format
-- **Thread-safe** concurrent request handling
-
 ## TODO
 
 - [ ] Add timeout for worker tasks
 - [ ] Add more tools
-- [ ] Add prometheus metrics
 - [ ] Add request tracing
