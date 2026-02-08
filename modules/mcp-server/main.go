@@ -14,7 +14,7 @@ import (
 	"syscall"
 )
 
-const protocolVersion = "2026-01-26"
+const protocolVersion = "2025-03-26" // latest MCP protocol version supported
 
 func main() {
 	log.Printf("MCP Server %s is running...", protocolVersion)
@@ -23,12 +23,13 @@ func main() {
 	defer stop()
 
 	decoder := json.NewDecoder(os.Stdin)
-	// writer := bufio.NewWriter(os.Stdout)
+	writer := bufio.NewWriter(os.Stdout)
 
 	msgChan := make(chan json.RawMessage)
 	errChan := make(chan error)
 
 	go func() {
+		defer close(msgChan)
 		for {
 			var msg json.RawMessage
 			if err := decoder.Decode(&msg); err != nil {
@@ -47,10 +48,17 @@ func main() {
 		case err := <-errChan:
 			if errors.Is(err, io.EOF) {
 				log.Println("EOF received, exiting.")
-				break
+				return
 			}
 			log.Fatalf("Error reading message: %v", err)
-		case msg := <-msgChan:
+		case msg, ok := <-msgChan:
+			if !ok {
+				log.Println("Message channel closed, exiting.")
+				return
+			}
+
+			log.Printf("Message received on channel: %s", string(msg))
+
 			log.Printf("Received message: %s", string(msg))
 			p := jsonrpc2.NewParser()
 			if err := p.ParseRequest(msg); err != nil {
@@ -59,20 +67,37 @@ func main() {
 			}
 
 			var err error
+			var res any
 			switch p.Req.Method {
 			case "initialize":
-				mcp.HandleInitialize(protocolVersion)
+				v, ok := p.Req.Params.GetAsObject()
+				if ok {
+					log.Println("Initialize params:", v)
+				}
+				res = mcp.HandleInitialize(protocolVersion, p.Req.ID)
 			case "tools/list":
-				mcp.HandleListTools()
-			case "tool/call":
+				res = mcp.HandleListTools(p.Req.ID)
+			case "tools/call":
+				res = mcp.HandleCallTool(p.Req.Params, p.Req.ID)
+			default:
+				err = errors.New("unknown method: " + p.Req.Method)
 			}
 			if err != nil {
 				log.Printf("Error handling method %s: %v", p.Req.Method, err)
 				continue
 			}
-			// writer.Write(responseBytes)
-			// writer.Flush()
-			// log.Printf("Sent response: %s", string(responseBytes))
+
+			en := json.NewEncoder(writer)
+			if err := en.Encode(res); err != nil {
+				log.Fatalf("Error encoding response: %v", err)
+				continue
+			}
+
+			if err := writer.Flush(); err != nil {
+				log.Fatalf("Error flushing writer: %v", err)
+			}
+
+			log.Printf("Sent response for method %s", p.Req.Method)
 		}
 	}
 }

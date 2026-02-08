@@ -2,3 +2,6 @@ mcp-server
 
 .opencode/*
 tmp/
+
+.opencode/opencode.json
+

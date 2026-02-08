@@ -26,16 +26,13 @@ func TestResponse_NewError(t *testing.T) {
 	code := InvalidRequest
 	message := "Invalid request"
 	data := "Additional error data"
-	resp := NewError(id, code, message, data)
+	resp := NewError[string](id, code, message, data)
 
 	if resp.JSONRPC != "2.0" {
 		t.Errorf("Expected JSONRPC '2.0', got '%s'", resp.JSONRPC)
 	}
 	if resp.ID != id {
 		t.Errorf("Expected ID %d, got %d", id, resp.ID)
-	}
-	if resp.Result != nil {
-		t.Errorf("Expected Result to be nil, got %v", resp.Result)
 	}
 	if resp.Error == nil {
 		t.Errorf("Expected Error to be non-nil, got nil")

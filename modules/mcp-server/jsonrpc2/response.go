@@ -21,8 +21,8 @@ func NewSuccess[T any](id int, result T) Response[T] {
 	}
 }
 
-func NewError(id int, code ErrorCode, message string, data any) Response[any] {
-	return Response[any]{
+func NewError[T any](id int, code ErrorCode, message string, data any) Response[T] {
+	return Response[T]{
 		JSONRPC: "2.0",
 		Error: &Error{
 			Code:    code,
