@@ -27,9 +27,9 @@ type ServerInfo struct {
 }
 
 type Tool struct {
+	InputSchema any    `json:"inputSchema"`
 	Name        string `json:"name"`
 	Description string `json:"description"`
-	InputSchema any    `json:"inputSchema"`
 }
 
 type ListToolsResponse struct {
@@ -37,8 +37,8 @@ type ListToolsResponse struct {
 }
 
 type CallToolRequest struct {
-	Name      string         `json:"name"`
 	Arguments map[string]any `json:"arguments"`
+	Name      string         `json:"name"`
 }
 
 type ToolResult struct {

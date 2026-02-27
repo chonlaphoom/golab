@@ -1,9 +1,9 @@
 package jsonrpc2
 
 type Request struct {
+	Params         Params
 	JSONRPC        string
 	Method         string
-	Params         Params
 	ID             int
 	IsNotification bool
 }

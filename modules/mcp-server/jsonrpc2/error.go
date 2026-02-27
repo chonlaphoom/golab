@@ -1,8 +1,8 @@
 package jsonrpc2
 
 type RPCError struct {
-	Code ErrorCode
 	Err  error
+	Code ErrorCode
 }
 
 func (e RPCError) Error() string {

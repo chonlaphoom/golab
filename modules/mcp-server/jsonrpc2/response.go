@@ -1,15 +1,15 @@
 package jsonrpc2
 
 type Error struct {
-	Code    ErrorCode `json:"code"`
-	Message string    `json:"message"`
 	Data    any       `json:"data,omitempty"`
+	Message string    `json:"message"`
+	Code    ErrorCode `json:"code"`
 }
 
 type Response[T any] struct {
-	JSONRPC string `json:"jsonrpc"`
 	Result  T      `json:"result,omitempty"`
 	Error   *Error `json:"error,omitempty"`
+	JSONRPC string `json:"jsonrpc"`
 	ID      int    `json:"id"`
 }
 
