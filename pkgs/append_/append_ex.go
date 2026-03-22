@@ -33,6 +33,7 @@ func main() {
 
 	*(*int)(unsafe.Pointer(&same_numbers[0])) = 88
 
-	fmt.Printf("numbers at index 0: %d\n", numbers[0])
-	fmt.Printf("same_numbers at index 0: %d\n", same_numbers[0])
+	// expect to be the same value
+	fmt.Printf("numbers at index 0: %d at %v\n", numbers[0], &numbers[0])
+	fmt.Printf("same_numbers at index 0: %d at %v\n", same_numbers[0], &same_numbers[0])
 }
