@@ -1,5 +1,0 @@
-// intentionally make it un-gettable
-
-module worker-pool
-
-go 1.25.0

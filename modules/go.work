@@ -2,7 +2,6 @@ go 1.25.0
 
 use (
 	./crawler
-	./worker-pool
-	./mcp-server
 	./http-proto-buf
+	./mcp-server
 )
