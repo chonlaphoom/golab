@@ -4,4 +4,5 @@ use (
 	./crawler
 	./worker-pool
 	./mcp-server
+	./http-proto-buf
 )

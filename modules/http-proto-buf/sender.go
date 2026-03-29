@@ -18,7 +18,7 @@ func sender(ctx context.Context) {
 
 		for scanner.Scan() {
 			b := scanner.Bytes()
-			res, err := http.Post("http://localhost:7777/message", "application/json", bytes.NewReader(b))
+			res, err := http.Post("http://localhost:7777/message", "text/plain", bytes.NewBuffer(b))
 			fmt.Printf("Sent: %s\n", string(b))
 			if err != nil {
 				log.Printf("Error sending request: %v", err)

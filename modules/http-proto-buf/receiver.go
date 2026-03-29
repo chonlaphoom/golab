@@ -3,10 +3,13 @@ package main
 import (
 	"context"
 	"errors"
+	"io"
 	"log"
 	"net/http"
 	"time"
 )
+
+const MAX_MESSAGE_SIZE = 1048576 // 1MB
 
 func receiver(ctx context.Context) {
 	log.Println("Starting receiver...")
@@ -47,11 +50,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	message := make([]byte, r.ContentLength)
-	r.Body.Read(message)
+	r.Body = http.MaxBytesReader(w, r.Body, MAX_MESSAGE_SIZE)
+	message, err := io.ReadAll(r.Body)
+
+	if err != nil {
+		http.Error(w, "Error reading body or body too large", http.StatusBadRequest)
+		return
+	}
 	defer r.Body.Close()
 
-	log.Printf("Received request: %s %s", r.Method, r.URL.Path)
+	log.Printf("Received request: %s %s, %s", r.Method, r.URL.Path, string(message))
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("Received message: " + string(message)))
 }
