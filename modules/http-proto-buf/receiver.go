@@ -3,10 +3,13 @@ package main
 import (
 	"context"
 	"errors"
+	"http-proto-buf/generated/message_pb"
 	"io"
 	"log"
 	"net/http"
 	"time"
+
+	proto "google.golang.org/protobuf/proto"
 )
 
 const MAX_MESSAGE_SIZE = 1048576 // 1MB
@@ -51,14 +54,19 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	r.Body = http.MaxBytesReader(w, r.Body, MAX_MESSAGE_SIZE)
-	message, err := io.ReadAll(r.Body)
-
+	messageData, err := io.ReadAll(r.Body)
 	if err != nil {
-		http.Error(w, "Error reading body or body too large", http.StatusBadRequest)
+		http.Error(w, "Error reading body", http.StatusBadRequest)
+		return
+	}
+	message := &message_pb.Message{}
+	err = proto.Unmarshal(messageData, message)
+	if err != nil {
+		http.Error(w, "Error unmarshaling body", http.StatusBadRequest)
 		return
 	}
 	defer r.Body.Close()
 
-	log.Printf("Received request: %s %s, %s", r.Method, r.URL.Path, string(message))
+	log.Printf("Received request: %s %s, %s", r.Method, r.URL.Path, message.Content)
 	w.WriteHeader(http.StatusOK)
 }

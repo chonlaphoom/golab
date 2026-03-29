@@ -4,10 +4,13 @@ import (
 	"bufio"
 	"bytes"
 	"context"
-	"fmt"
+	"http-proto-buf/generated/message_pb"
 	"log"
 	"net/http"
 	"os"
+	"time"
+
+	"google.golang.org/protobuf/proto"
 )
 
 func sender(ctx context.Context) {
@@ -15,20 +18,43 @@ func sender(ctx context.Context) {
 
 	go func() {
 		scanner := bufio.NewScanner(os.Stdin)
+		url := "http://localhost:7777/message"
+		contentType := "application/x-proto-content"
 
 		for scanner.Scan() {
 			b := scanner.Bytes()
-			res, err := http.Post("http://localhost:7777/message", "text/plain", bytes.NewBuffer(b))
-			fmt.Printf("Sent: %s\n", string(b))
+			message := &message_pb.Message{
+				Id:        "0",
+				Content:   string(b),
+				Timestamp: time.Now().Unix(),
+			}
+			data, err := proto.Marshal(message)
+			if err != nil {
+				log.Printf("Error marshaling message: %v", err)
+				continue
+			}
+
+			req, err := http.NewRequest("POST", url, bytes.NewBuffer(data))
+			if err != nil {
+				log.Printf("Error creating request: %v", err)
+				continue
+			}
+			req.Header.Set("Content-Type", contentType)
+			client := &http.Client{}
+			resp, err := client.Do(req)
+
 			if err != nil {
 				log.Printf("Error sending request: %v", err)
 				continue
 			}
-			res.Body.Close()
-			if res.StatusCode != http.StatusOK {
-				log.Printf("Received non-OK response: %s", res.Status)
+
+			resp.Body.Close()
+
+			if resp.StatusCode != http.StatusOK {
+				log.Printf("Received non-OK response: %s", resp.Status)
+			} else {
+				log.Printf("Message sent successfully: %s", string(b))
 			}
-			fmt.Printf("Received response: %s\n", res.Status)
 		}
 		if err := scanner.Err(); err != nil {
 			log.Fatalf("Error reading from stdin: %v", err)

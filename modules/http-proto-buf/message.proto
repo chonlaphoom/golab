@@ -1,5 +1,8 @@
 syntax = "proto3";
+
 package message;
+
+option go_package = "/message_pb";
 
 message Message {
   string id = 1;
