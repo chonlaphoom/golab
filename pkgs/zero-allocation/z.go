@@ -12,6 +12,10 @@ const (
 )
 
 func main() {
+	readChunk()
+}
+
+func readChunk() {
 	buffer := make([]byte, bufferSize)
 	file, err := os.OpenFile(fileName, os.O_RDONLY, 0644)
 	defer file.Close()
@@ -22,13 +26,18 @@ func main() {
 
 	for {
 		b, err := file.Read(buffer)
-		if b == 0 || err == io.EOF {
-			break
+		if b > 0 {
+			fmt.Printf("%s", buffer[:b])
+			continue
 		}
+
 		if err != nil {
-			os.Stderr.WriteString("Error reading file: " + err.Error() + "\n")
-			break
+			if err == io.EOF {
+				break
+			}
+
+			fmt.Fprintln(os.Stderr, "Error reading file:", err)
+			os.Exit(1)
 		}
-		fmt.Printf("%s", buffer[:b])
 	}
 }
