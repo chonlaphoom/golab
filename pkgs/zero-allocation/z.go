@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 )
 
 const (
@@ -12,7 +13,27 @@ const (
 )
 
 func main() {
-	readChunk()
+	var r io.Reader = strings.NewReader("some io.Reader stream to be read\n")
+
+	myTee := &myTeeReader{r: r, w: os.Stdout}
+	if _, err := io.ReadAll(myTee); err != nil {
+		fmt.Fprintln(os.Stderr, "Error reading from myTeeReader:", err)
+	}
+}
+
+type myTeeReader struct {
+	r io.Reader
+	w io.Writer
+}
+
+func (t *myTeeReader) Read(p []byte) (n int, err error) {
+	till, err := t.r.Read(p)
+	if till > 0 {
+		if _, err := t.w.Write(p[:till]); err != nil {
+			return till, err
+		}
+	}
+	return till, err
 }
 
 func readChunk() {
